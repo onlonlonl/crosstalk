@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -26,146 +27,147 @@
   }
   .wrap { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; }
 
-  /* Header */
-  .header { text-align: center; padding: 28px 16px 12px; border-bottom: 2px dashed var(--shadow); }
-  .header h1 { font-size: 28px; font-weight: 800; color: var(--accent); letter-spacing: 4px; text-transform: uppercase; text-shadow: 2px 2px 0 #fce4d6; }
-  .gear { position: absolute; top: 16px; right: 16px; cursor: pointer; opacity: .6; transition: opacity .2s; text-align: center; font-size: 8px; color: var(--muted); }
-  .gear:hover { opacity: 1; }
+/* Header */
+.header { text-align: center; padding: 28px 16px 12px; border-bottom: 2px dashed var(–shadow); }
+.header h1 { font-size: 28px; font-weight: 800; color: var(–accent); letter-spacing: 4px; text-transform: uppercase; text-shadow: 2px 2px 0 #fce4d6; }
+.gear { position: absolute; top: 16px; right: 16px; cursor: pointer; opacity: .6; transition: opacity .2s; text-align: center; font-size: 8px; color: var(–muted); }
+.gear:hover { opacity: 1; }
 
-  /* Nav */
-  .nav { display: flex; justify-content: center; gap: 12px; padding: 20px 16px; flex-wrap: wrap; align-items: center; }
-  .btn {
-    padding: 10px 20px; border: 2px solid var(--border); background: var(--cream);
-    color: #7a7068; cursor: pointer; font-size: 12px; font-family: inherit;
-    box-shadow: 2px 2px 0 var(--shadow); transition: all .15s;
-  }
-  .btn:hover { transform: translateY(-1px); }
-  .btn.active { background: var(--accent); color: var(--cream); box-shadow: 3px 3px 0 #7a7068; }
-  .btn.small { padding: 10px 14px; }
+/* Nav */
+.nav { display: flex; justify-content: center; gap: 12px; padding: 20px 16px; flex-wrap: wrap; align-items: center; }
+.btn {
+padding: 10px 20px; border: 2px solid var(–border); background: var(–cream);
+color: #7a7068; cursor: pointer; font-size: 12px; font-family: inherit;
+box-shadow: 2px 2px 0 var(–shadow); transition: all .15s;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn.active { background: var(–accent); color: var(–cream); box-shadow: 3px 3px 0 #7a7068; }
+.btn.small { padding: 10px 14px; }
 
-  /* Columns */
-  .columns { display: flex; gap: 0; padding: 0 12px 24px; min-height: 60vh; }
-  .col { flex: 1; padding: 0 8px; }
-  .col-label { text-align: center; font-size: 11px; letter-spacing: 3px; color: var(--muted); padding: 8px 0 12px; }
-  .divider { width: 2px; margin: 0 4px; flex-shrink: 0; background: repeating-linear-gradient(to bottom, var(--shadow) 0, var(--shadow) 4px, transparent 4px, transparent 8px); }
+/* Columns */
+.columns { display: flex; gap: 0; padding: 0 12px 24px; min-height: 60vh; }
+.col { flex: 1; padding: 0 8px; }
+.col-label { text-align: center; font-size: 11px; letter-spacing: 3px; color: var(–muted); padding: 8px 0 12px; }
+.divider { width: 2px; margin: 0 4px; flex-shrink: 0; background: repeating-linear-gradient(to bottom, var(–shadow) 0, var(–shadow) 4px, transparent 4px, transparent 8px); }
 
-  /* Cards */
-  .card {
-    background: var(--card); border: 2px solid var(--border); margin-bottom: 12px;
-    padding: 14px; cursor: pointer; box-shadow: 3px 3px 0 var(--light);
-    transition: all .25s ease;
-  }
-  .card:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 var(--shadow); }
-  .card.expanded { box-shadow: 4px 4px 0 var(--tan); transform: none; }
-  .card-empty {
-    background: transparent; border: 2px dashed var(--shadow); margin-bottom: 12px;
-    padding: 32px 14px; text-align: center; color: #c4b4a0; font-size: 11px;
-  }
-  .cover {
-    width: 100%; aspect-ratio: 1; border: 1px solid var(--light);
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 10px; position: relative; overflow: hidden;
-    background: linear-gradient(135deg, #fce4d6, #f4845f22 50%, var(--light));
-  }
-  .cover img { width: 100%; height: 100%; object-fit: cover; }
-  .vinyl { width: 60%; height: 60%; border-radius: 50%; background: radial-gradient(circle, #7a7068 15%, #6a635c 16%, #6a635c 30%, #7a7068 31%); opacity: .15; }
-  .cover .album-label { position: absolute; bottom: 6px; right: 6px; font-size: 8px; color: var(--muted); background: #faf0e6cc; padding: 2px 4px; }
-  .song-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 2px; line-height: 1.3; }
-  .song-artist { font-size: 11px; color: #8a7a68; margin-bottom: 4px; }
-  .listen-link { font-size: 9px; color: var(--weather); text-decoration: none; }
-  .tag { display: inline-block; padding: 3px 8px; font-size: 10px; margin: 0 4px 4px 0; }
+/* Cards */
+.card {
+background: var(–card); border: 2px solid var(–border); margin-bottom: 12px;
+padding: 14px; cursor: pointer; box-shadow: 3px 3px 0 var(–light);
+transition: all .25s ease;
+}
+.card:hover { transform: translateY(-2px); box-shadow: 4px 4px 0 var(–shadow); }
+.card.expanded { box-shadow: 4px 4px 0 var(–tan); transform: none; }
+.card-empty {
+background: transparent; border: 2px dashed var(–shadow); margin-bottom: 12px;
+padding: 32px 14px; text-align: center; color: #c4b4a0; font-size: 11px;
+}
+.cover {
+width: 100%; aspect-ratio: 1; border: 1px solid var(–light);
+display: flex; align-items: center; justify-content: center;
+margin-bottom: 10px; position: relative; overflow: hidden;
+background: linear-gradient(135deg, #fce4d6, #f4845f22 50%, var(–light));
+}
+.cover img { width: 100%; height: 100%; object-fit: cover; }
+.vinyl { width: 60%; height: 60%; border-radius: 50%; background: radial-gradient(circle, #7a7068 15%, #6a635c 16%, #6a635c 30%, #7a7068 31%); opacity: .15; }
+.cover .album-label { position: absolute; bottom: 6px; right: 6px; font-size: 8px; color: var(–muted); background: #faf0e6cc; padding: 2px 4px; }
+.song-title { font-size: 14px; font-weight: 700; color: var(–text); margin-bottom: 2px; line-height: 1.3; }
+.song-artist { font-size: 11px; color: #8a7a68; margin-bottom: 4px; }
+.listen-link { font-size: 9px; color: var(–weather); text-decoration: none; }
+.tag { display: inline-block; padding: 3px 8px; font-size: 10px; margin: 0 4px 4px 0; }
 
-  /* Expanded card content */
-  .theme-bar { font-size: 10px; color: var(--muted); margin-top: 10px; padding: 6px 8px; background: #f4f0ea; }
-  .note { font-size: 12px; line-height: 1.6; color: #7a7068; padding: 10px 0; border-top: 1px dashed var(--light); margin-top: 8px; font-style: italic; }
-  .comments-section { border-top: 2px dashed var(--light); margin-top: 12px; padding-top: 10px; }
-  .comments-label { font-size: 10px; color: var(--muted); margin-bottom: 8px; letter-spacing: 1px; }
-  .comment-row { display: flex; gap: 8px; margin-bottom: 8px; }
-  .comment-row.claude { flex-direction: row; }
-  .comment-row.user { flex-direction: row-reverse; }
-  .comment-avatar { width: 22px; height: 22px; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 2px solid var(--border); background: var(--cream); }
-  .comment-bubble { padding: 8px 10px; font-size: 11px; line-height: 1.5; color: var(--text); max-width: 85%; }
-  .comment-bubble.claude { background: #fce4d6; border: 1px solid #f4c4a0; }
-  .comment-bubble.user { background: #e8ede4; border: 1px solid #c4d4b4; }
-  .comment-input { display: flex; gap: 6px; margin-top: 8px; }
-  .comment-input input { flex: 1; padding: 8px 10px; border: 2px solid var(--border); background: var(--cream); font-family: inherit; font-size: 11px; color: var(--text); outline: none; }
-  .comment-input button { padding: 6px 12px; border: 2px solid var(--border); background: var(--accent); color: var(--cream); cursor: pointer; font-size: 11px; font-family: inherit; box-shadow: 2px 2px 0 #7a7068; }
+/* Expanded card content */
+.theme-bar { font-size: 10px; color: var(–muted); margin-top: 10px; padding: 6px 8px; background: #f4f0ea; }
+.note { font-size: 12px; line-height: 1.6; color: #7a7068; padding: 10px 0; border-top: 1px dashed var(–light); margin-top: 8px; font-style: italic; }
+.comments-section { border-top: 2px dashed var(–light); margin-top: 12px; padding-top: 10px; }
+.comments-label { font-size: 10px; color: var(–muted); margin-bottom: 8px; letter-spacing: 1px; }
+.comment-row { display: flex; gap: 8px; margin-bottom: 8px; }
+.comment-row.claude { flex-direction: row; }
+.comment-row.user { flex-direction: row-reverse; }
+.comment-avatar { width: 22px; height: 22px; font-size: 12px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 2px solid var(–border); background: var(–cream); }
+.comment-bubble { padding: 8px 10px; font-size: 11px; line-height: 1.5; color: var(–text); max-width: 85%; }
+.comment-bubble.claude { background: #fce4d6; border: 1px solid #f4c4a0; }
+.comment-bubble.user { background: #e8ede4; border: 1px solid #c4d4b4; }
+.comment-input { display: flex; gap: 6px; margin-top: 8px; }
+.comment-input input { flex: 1; padding: 8px 10px; border: 2px solid var(–border); background: var(–cream); font-family: inherit; font-size: 11px; color: var(–text); outline: none; }
+.comment-input button { padding: 6px 12px; border: 2px solid var(–border); background: var(–accent); color: var(–cream); cursor: pointer; font-size: 11px; font-family: inherit; box-shadow: 2px 2px 0 #7a7068; }
 
-  /* Filter */
-  .filter-bar { padding: 8px 16px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-  .filter-label { font-size: 10px; color: var(--muted); letter-spacing: 1px; margin-right: 2px; }
-  .filter-cat { position: relative; display: inline-block; }
-  .filter-cat-btn { padding: 4px 10px; font-size: 10px; border: 1px solid var(--shadow); background: transparent; color: #8a7a68; cursor: pointer; font-family: inherit; }
-  .filter-cat-btn.has-active { border-color: var(--accent); background: #fce4d6; color: var(--accent); }
-  .filter-cat-btn.open { background: var(--accent); color: var(--cream); }
-  .filter-dropdown { position: absolute; top: 100%; left: 0; margin-top: 4px; background: var(--card); border: 2px solid var(--border); padding: 8px; box-shadow: 4px 4px 0 var(--shadow); z-index: 50; display: flex; flex-wrap: wrap; gap: 4px; min-width: 200px; }
-  .filter-tag { padding: 3px 8px; font-size: 10px; cursor: pointer; font-family: inherit; }
-  .clear-btn { padding: 4px 8px; font-size: 10px; border: 1px solid var(--accent); background: transparent; color: var(--accent); cursor: pointer; font-family: inherit; }
+/* Filter */
+.filter-bar { padding: 8px 16px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.filter-label { font-size: 10px; color: var(–muted); letter-spacing: 1px; margin-right: 2px; }
+.filter-cat { position: relative; display: inline-block; }
+.filter-cat-btn { padding: 4px 10px; font-size: 10px; border: 1px solid var(–shadow); background: transparent; color: #8a7a68; cursor: pointer; font-family: inherit; }
+.filter-cat-btn.has-active { border-color: var(–accent); background: #fce4d6; color: var(–accent); }
+.filter-cat-btn.open { background: var(–accent); color: var(–cream); }
+.filter-dropdown { position: absolute; top: 100%; left: 0; margin-top: 4px; background: var(–card); border: 2px solid var(–border); padding: 8px; box-shadow: 4px 4px 0 var(–shadow); z-index: 50; display: flex; flex-wrap: wrap; gap: 4px; min-width: 200px; }
+.filter-tag { padding: 3px 8px; font-size: 10px; cursor: pointer; font-family: inherit; }
+.clear-btn { padding: 4px 8px; font-size: 10px; border: 1px solid var(–accent); background: transparent; color: var(–accent); cursor: pointer; font-family: inherit; }
 
-  /* Exchange */
-  .exchange { max-width: 600px; margin: 0 auto; padding: 16px; }
-  .exchange-card { background: var(--card); border: 2px solid var(--border); padding: 20px; margin-bottom: 16px; box-shadow: 3px 3px 0 var(--light); }
-  .input { width: 100%; padding: 10px; border: 2px solid var(--border); background: var(--cream); font-family: inherit; font-size: 12px; color: var(--text); outline: none; margin-bottom: 8px; }
-  .input:focus { border-color: var(--accent); }
-  textarea.input { resize: vertical; min-height: 60px; }
-  .submit-btn { padding: 10px 24px; border: 2px solid var(--border); background: var(--accent); color: var(--cream); cursor: pointer; font-size: 12px; font-family: inherit; box-shadow: 3px 3px 0 #7a7068; }
-  .submit-btn:disabled { opacity: .5; cursor: not-allowed; }
-  .submit-btn:not(:disabled):hover { transform: translateY(-1px); }
+/* Exchange */
+.exchange { max-width: 600px; margin: 0 auto; padding: 16px; }
+.exchange-card { background: var(–card); border: 2px solid var(–border); padding: 20px; margin-bottom: 16px; box-shadow: 3px 3px 0 var(–light); }
+.input { width: 100%; padding: 10px; border: 2px solid var(–border); background: var(–cream); font-family: inherit; font-size: 12px; color: var(–text); outline: none; margin-bottom: 8px; }
+.input:focus { border-color: var(–accent); }
+textarea.input { resize: vertical; min-height: 60px; }
+.submit-btn { padding: 10px 24px; border: 2px solid var(–border); background: var(–accent); color: var(–cream); cursor: pointer; font-size: 12px; font-family: inherit; box-shadow: 3px 3px 0 #7a7068; }
+.submit-btn:disabled { opacity: .5; cursor: not-allowed; }
+.submit-btn:not(:disabled):hover { transform: translateY(-1px); }
 
-  /* History card */
-  .hist-card { padding: 12px; background: var(--card); border: 2px solid var(--light); margin-bottom: 8px; cursor: pointer; transition: all .2s; }
-  .hist-card:hover { border-color: var(--accent); box-shadow: 3px 3px 0 #fce4d6; }
-  .hist-meta { font-size: 10px; color: var(--muted); margin-bottom: 8px; text-align: center; }
-  .hist-theme { font-size: 11px; color: #7a7068; margin-bottom: 10px; font-style: italic; text-align: center; }
-  .hist-songs { display: flex; align-items: center; gap: 8px; }
-  .hist-side { flex: 1; display: flex; align-items: center; gap: 6px; }
-  .hist-side.right { justify-content: flex-end; }
+/* History card */
+.hist-card { padding: 12px; background: var(–card); border: 2px solid var(–light); margin-bottom: 8px; cursor: pointer; transition: all .2s; }
+.hist-card:hover { border-color: var(–accent); box-shadow: 3px 3px 0 #fce4d6; }
+.hist-meta { font-size: 10px; color: var(–muted); margin-bottom: 8px; text-align: center; }
+.hist-theme { font-size: 11px; color: #7a7068; margin-bottom: 10px; font-style: italic; text-align: center; }
+.hist-songs { display: flex; align-items: center; gap: 8px; }
+.hist-side { flex: 1; display: flex; align-items: center; gap: 6px; }
+.hist-side.right { justify-content: flex-end; }
 
-  /* Modals */
-  .overlay { position: fixed; inset: 0; background: rgba(90,83,76,.3); z-index: 200; display: flex; align-items: center; justify-content: center; }
-  .modal { background: var(--card); border: 2px solid var(--border); padding: 24px; box-shadow: 6px 6px 0 var(--shadow); max-width: 340px; width: 90%; }
-  .modal-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 20px; letter-spacing: 2px; }
-  .setting-row { margin-bottom: 16px; padding: 12px; background: var(--bg); border: 1px solid var(--light); }
-  .emoji-grid { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--card); border: 2px solid var(--border); padding: 10px; box-shadow: 4px 4px 0 var(--shadow); z-index: 100; margin-top: 4px; display: grid; grid-template-columns: repeat(5,1fr); gap: 4px; width: 180px; }
-  .emoji-btn { width: 32px; height: 32px; border: 1px solid var(--light); background: transparent; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
-  .emoji-btn.active { border: 2px solid var(--accent); background: #fce4d6; }
+/* Modals */
+.overlay { position: fixed; inset: 0; background: rgba(90,83,76,.3); z-index: 200; display: flex; align-items: center; justify-content: center; }
+.modal { background: var(–card); border: 2px solid var(–border); padding: 24px; box-shadow: 6px 6px 0 var(–shadow); max-width: 340px; width: 90%; }
+.modal-title { font-size: 14px; font-weight: 700; color: var(–text); margin-bottom: 20px; letter-spacing: 2px; }
+.setting-row { margin-bottom: 16px; padding: 12px; background: var(–bg); border: 1px solid var(–light); }
+.emoji-grid { position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(–card); border: 2px solid var(–border); padding: 10px; box-shadow: 4px 4px 0 var(–shadow); z-index: 100; margin-top: 4px; display: grid; grid-template-columns: repeat(5,1fr); gap: 4px; width: 180px; }
+.emoji-btn { width: 32px; height: 32px; border: 1px solid var(–light); background: transparent; cursor: pointer; font-size: 16px; display: flex; align-items: center; justify-content: center; }
+.emoji-btn.active { border: 2px solid var(–accent); background: #fce4d6; }
 
-  /* Footer */
-  .footer { text-align: center; padding: 24px; font-size: 10px; color: #c4b4a0; letter-spacing: 2px; border-top: 1px dashed var(--light); }
+/* Footer */
+.footer { text-align: center; padding: 24px; font-size: 10px; color: #c4b4a0; letter-spacing: 2px; border-top: 1px dashed var(–light); }
 
-  /* Scroll to top */
-  .scroll-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; border: 2px solid var(--border); background: var(--card); color: var(--accent); cursor: pointer; font-size: 16px; font-family: inherit; box-shadow: 3px 3px 0 var(--shadow); display: flex; align-items: center; justify-content: center; z-index: 100; }
+/* Scroll to top */
+.scroll-top { position: fixed; bottom: 24px; right: 24px; width: 40px; height: 40px; border: 2px solid var(–border); background: var(–card); color: var(–accent); cursor: pointer; font-size: 16px; font-family: inherit; box-shadow: 3px 3px 0 var(–shadow); display: flex; align-items: center; justify-content: center; z-index: 100; }
 
-  /* Loading */
-  .loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
-  @keyframes dots { 0%,20% { content: ''; } 40% { content: '.'; } 60% { content: '..'; } 80%,100% { content: '...'; } }
-  .dots::after { content: ''; animation: dots 1.5s infinite; }
+/* Loading */
+.loading { min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+@keyframes dots { 0%,20% { content: ‘’; } 40% { content: ‘.’; } 60% { content: ‘..’; } 80%,100% { content: ‘…’; } }
+.dots::after { content: ‘’; animation: dots 1.5s infinite; }
 
-  /* Responsive */
-  .mobile-switcher { display: none; align-items: center; justify-content: center; gap: 16px; padding: 12px 16px; }
-  .mobile-switcher button { font-size: 10px; border: none; background: none; cursor: pointer; font-family: inherit; color: #c4b4a0; }
-  .mobile-switcher button.active { color: var(--accent); font-weight: 700; }
-  .switch-dots { display: flex; gap: 8px; }
-  .switch-dot { width: 8px; height: 8px; background: var(--shadow); border: 1px solid var(--border); cursor: pointer; }
-  .switch-dot.mid { width: 10px; height: 10px; }
-  .switch-dot.active { background: var(--accent); }
+/* Responsive */
+.mobile-switcher { display: none; align-items: center; justify-content: center; gap: 16px; padding: 12px 16px; }
+.mobile-switcher button { font-size: 10px; border: none; background: none; cursor: pointer; font-family: inherit; color: #c4b4a0; }
+.mobile-switcher button.active { color: var(–accent); font-weight: 700; }
+.switch-dots { display: flex; gap: 8px; }
+.switch-dot { width: 8px; height: 8px; background: var(–shadow); border: 1px solid var(–border); cursor: pointer; }
+.switch-dot.mid { width: 10px; height: 10px; }
+.switch-dot.active { background: var(–accent); }
 
-  @media (max-width: 639px) {
-    .mobile-switcher { display: flex; }
-    .columns.hide-claude .col.claude-col,
-    .columns.hide-user .col.user-col,
-    .columns.hide-claude .divider,
-    .columns.hide-user .divider { display: none; }
-  }
-  .empty-state { text-align: center; padding: 60px 20px; color: #c4b4a0; }
-  .empty-state .icon { font-size: 28px; margin-bottom: 12px; }
+@media (max-width: 639px) {
+.mobile-switcher { display: flex; }
+.columns.hide-claude .col.claude-col,
+.columns.hide-user .col.user-col,
+.columns.hide-claude .divider,
+.columns.hide-user .divider { display: none; }
+}
+.empty-state { text-align: center; padding: 60px 20px; color: #c4b4a0; }
+.empty-state .icon { font-size: 28px; margin-bottom: 12px; }
 
-  .q-display { padding: 12px; background: #fce4d6; border: 1px solid #f4c4a0; margin-bottom: 16px; font-size: 13px; color: var(--text); line-height: 1.6; }
-  .hint { font-size: 10px; color: var(--muted); line-height: 1.6; margin-top: 8px; }
-  .tag-section { margin-bottom: 8px; }
-  .tag-section-label { font-size: 10px; letter-spacing: 1px; }
-  .tag-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+.q-display { padding: 12px; background: #fce4d6; border: 1px solid #f4c4a0; margin-bottom: 16px; font-size: 13px; color: var(–text); line-height: 1.6; }
+.hint { font-size: 10px; color: var(–muted); line-height: 1.6; margin-top: 8px; }
+.tag-section { margin-bottom: 8px; }
+.tag-section-label { font-size: 10px; letter-spacing: 1px; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 </style>
+
 </head>
 <body>
 <div id="root"></div>
@@ -178,478 +180,510 @@ const { useState, useEffect, useRef, useCallback } = React;
 // ─── API ────────────────────────────────────────────────────────────────
 // ─── API URL (from localStorage or setup) ───────────────────────────────
 function getApiUrl() {
-  try { return localStorage.getItem("crosstalk_api_url") || ""; } catch { return ""; }
+try { return localStorage.getItem(“crosstalk_api_url”) || “”; } catch { return “”; }
 }
 function setApiUrl(url) {
-  try { localStorage.setItem("crosstalk_api_url", url); } catch {}
+try { localStorage.setItem(“crosstalk_api_url”, url); } catch {}
 }
 let API = getApiUrl();
 
 // ─── Setup Screen ───────────────────────────────────────────────────────
 function SetupScreen({ onDone }) {
-  const [url, setUrl] = useState("");
-  const [testing, setTesting] = useState(false);
-  const [err, setErr] = useState("");
-  const doTest = async () => {
-    setTesting(true); setErr("");
-    const full = url.trim().replace(/\/$/, "") + "/functions/v1/crosstalk-api";
-    try {
-      const res = await fetch(full + "/settings");
-      if (!res.ok) throw new Error("" + res.status);
-      setApiUrl(full); API = full; onDone();
-    } catch (e) { setErr("連接失敗 Connection failed — 請確認 URL 正確且 Edge Function 已部署"); }
-    setTesting(false);
-  };
-  return (
-    <div style={{ minHeight: "100vh", background: "var(--bg)", display: "flex", alignItems: "center", justifyContent: "center", fontFamily: "'DotGothic16', monospace", padding: 20 }}>
-      <div style={{ background: "var(--card)", border: "2px solid var(--border)", padding: 28, boxShadow: "6px 6px 0 var(--shadow)", maxWidth: 420, width: "100%", textAlign: "center" }}>
-        <div style={{ fontSize: 28, marginBottom: 8 }}>🎵</div>
-        <div style={{ fontSize: 22, fontWeight: 800, color: "var(--accent)", letterSpacing: 4, marginBottom: 4 }}>CROSSTALK</div>
-        <div style={{ fontSize: 11, color: "var(--muted)", marginBottom: 24 }}>首次設定 First-time Setup</div>
-        <div style={{ fontSize: 11, color: "var(--text)", marginBottom: 12, lineHeight: 1.6, textAlign: "left" }}>
-          輸入你的 Supabase Project URL：<br/>
-          <span style={{ color: "var(--muted)", fontSize: 10 }}>例如 https://abcdefg.supabase.co</span>
-        </div>
-        <input value={url} onChange={e => setUrl(e.target.value)} placeholder="https://xxxxx.supabase.co" style={{ width: "100%", padding: 10, border: "2px solid var(--border)", background: "var(--cream)", fontFamily: "inherit", fontSize: 12, color: "var(--text)", outline: "none", boxSizing: "border-box", marginBottom: 8 }} />
-        {err && <div style={{ fontSize: 10, color: "var(--accent)", marginBottom: 8 }}>{err}</div>}
-        <button onClick={doTest} disabled={!url.trim() || testing} style={{ width: "100%", padding: 10, border: "2px solid var(--border)", background: "var(--accent)", color: "var(--cream)", cursor: "pointer", fontSize: 12, fontFamily: "inherit", boxShadow: "3px 3px 0 #7a7068", opacity: (!url.trim() || testing) ? .5 : 1 }}>
-          {testing ? "測試中..." : "連接 Connect"}
-        </button>
-        <div style={{ fontSize: 9, color: "var(--muted)", marginTop: 16, lineHeight: 1.6 }}>
-          需要先完成 Supabase 部署<br/>
-          詳見 <a href="https://github.com/onlonlonl/crosstalk" target="_blank" style={{ color: "var(--weather)" }}>GitHub README</a>
-        </div>
-      </div>
-    </div>
-  );
+const [url, setUrl] = useState(””);
+const [testing, setTesting] = useState(false);
+const [err, setErr] = useState(””);
+const doTest = async () => {
+setTesting(true); setErr(””);
+const full = url.trim().replace(//$/, “”) + “/functions/v1/crosstalk-api”;
+try {
+const res = await fetch(full + “/settings”);
+if (!res.ok) throw new Error(”” + res.status);
+setApiUrl(full); API = full; onDone();
+} catch (e) { setErr(“連接失敗 Connection failed — 請確認 URL 正確且 Edge Function 已部署”); }
+setTesting(false);
+};
+return (
+<div style={{ minHeight: “100vh”, background: “var(–bg)”, display: “flex”, alignItems: “center”, justifyContent: “center”, fontFamily: “‘DotGothic16’, monospace”, padding: 20 }}>
+<div style={{ background: “var(–card)”, border: “2px solid var(–border)”, padding: 28, boxShadow: “6px 6px 0 var(–shadow)”, maxWidth: 420, width: “100%”, textAlign: “center” }}>
+<div style={{ fontSize: 28, marginBottom: 8 }}>🎵</div>
+<div style={{ fontSize: 22, fontWeight: 800, color: “var(–accent)”, letterSpacing: 4, marginBottom: 4 }}>CROSSTALK</div>
+<div style={{ fontSize: 11, color: “var(–muted)”, marginBottom: 24 }}>首次設定 First-time Setup</div>
+<div style={{ fontSize: 11, color: “var(–text)”, marginBottom: 12, lineHeight: 1.6, textAlign: “left” }}>
+輸入你的 Supabase Project URL：<br/>
+<span style={{ color: “var(–muted)”, fontSize: 10 }}>例如 https://abcdefg.supabase.co</span>
+</div>
+<input value={url} onChange={e => setUrl(e.target.value)} placeholder=“https://xxxxx.supabase.co” style={{ width: “100%”, padding: 10, border: “2px solid var(–border)”, background: “var(–cream)”, fontFamily: “inherit”, fontSize: 12, color: “var(–text)”, outline: “none”, boxSizing: “border-box”, marginBottom: 8 }} />
+{err && <div style={{ fontSize: 10, color: “var(–accent)”, marginBottom: 8 }}>{err}</div>}
+<button onClick={doTest} disabled={!url.trim() || testing} style={{ width: “100%”, padding: 10, border: “2px solid var(–border)”, background: “var(–accent)”, color: “var(–cream)”, cursor: “pointer”, fontSize: 12, fontFamily: “inherit”, boxShadow: “3px 3px 0 #7a7068”, opacity: (!url.trim() || testing) ? .5 : 1 }}>
+{testing ? “測試中…” : “連接 Connect”}
+</button>
+<div style={{ fontSize: 9, color: “var(–muted)”, marginTop: 16, lineHeight: 1.6 }}>
+需要先完成 Supabase 部署<br/>
+詳見 <a href=“https://github.com/onlonlonl/crosstalk” target=”_blank” style={{ color: “var(–weather)” }}>GitHub README</a>
+</div>
+</div>
+</div>
+);
 }
-async function api(path, method = "GET", body = null) {
-  const opts = { method, headers: { "Content-Type": "application/json" } };
-  if (body) opts.body = JSON.stringify(body);
-  const res = await fetch(`${API}${path}`, opts);
-  if (!res.ok) throw new Error(`${res.status}`);
-  return res.json();
+async function api(path, method = “GET”, body = null) {
+const opts = { method, headers: { “Content-Type”: “application/json” } };
+if (body) opts.body = JSON.stringify(body);
+const res = await fetch(`${API}${path}`, opts);
+if (!res.ok) throw new Error(`${res.status}`);
+return res.json();
 }
 
 // ─── Constants ──────────────────────────────────────────────────────────
 const TAGS = {
-  weather: ["晴 Sunny","陰 Cloudy","雨 Rainy","雪 Snowy","霧 Foggy","風 Windy","雷暴 Storm"],
-  place: ["床 Bed","浴室 Bath","書桌 Desk","咖啡廳 Café","散步 Walk","開車 Drive","地鐵 Metro","陽台 Balcony","機場 Airport","公園 Park"],
-  time: ["清晨 Dawn","上午 Morning","午後 Afternoon","傍晚 Dusk","深夜 Late Night","失眠 Sleepless"],
-  mood: ["平靜 Calm","開心 Happy","緊張 Nervous","傷心 Sad","懷念 Nostalgic","失落 Lost"],
+weather: [“晴 Sunny”,“陰 Cloudy”,“雨 Rainy”,“雪 Snowy”,“霧 Foggy”,“風 Windy”,“雷暴 Storm”],
+place: [“床 Bed”,“浴室 Bath”,“書桌 Desk”,“咖啡廳 Café”,“散步 Walk”,“開車 Drive”,“地鐵 Metro”,“陽台 Balcony”,“機場 Airport”,“公園 Park”],
+time: [“清晨 Dawn”,“上午 Morning”,“午後 Afternoon”,“傍晚 Dusk”,“深夜 Late Night”,“失眠 Sleepless”],
+mood: [“平靜 Calm”,“開心 Happy”,“緊張 Nervous”,“傷心 Sad”,“懷念 Nostalgic”,“失落 Lost”],
 };
-const TAG_LABELS = { weather: "天氣 Weather", place: "場所 Place", time: "時間 Time", mood: "心情 Mood" };
-const TAG_COLORS = { weather: "var(--weather)", place: "var(--place)", time: "var(--time)", mood: "var(--mood)", custom: "var(--custom)" };
-const EMOJIS = ["🍊","🎧","🌙","☁️","🎵","🍵","🌿","✨","🐱","🐻","🦊","🎨","💫","🌸","🍃","🔮","🪐","🎪","🧸","🫧"];
+const TAG_LABELS = { weather: “天氣 Weather”, place: “場所 Place”, time: “時間 Time”, mood: “心情 Mood” };
+const TAG_COLORS = { weather: “var(–weather)”, place: “var(–place)”, time: “var(–time)”, mood: “var(–mood)”, custom: “var(–custom)” };
+const EMOJIS = [“🍊”,“🎧”,“🌙”,“☁️”,“🎵”,“🍵”,“🌿”,“✨”,“🐱”,“🐻”,“🦊”,“🎨”,“💫”,“🌸”,“🍃”,“🔮”,“🪐”,“🎪”,“🧸”,“🫧”];
 
 // ─── Pixel Headphone SVG ────────────────────────────────────────────────
-function PH({ type = "wired", connected = true, size = 120 }) {
-  const a = "#f4845f", b = "#faf0e6", c = "#8a8078", d = "#d4a574";
-  if (!connected) return (
-    <svg width={size} height={size} viewBox="0 0 48 48" style={{ imageRendering: "pixelated" }}>
-      <rect x="4" y="16" width="8" height="12" fill={a}/><rect x="6" y="18" width="4" height="8" fill={b}/>
-      <rect x="36" y="16" width="8" height="12" fill={d} opacity=".3"/>
-      <rect x="6" y="28" width="2" height="6" fill={c}/><rect x="8" y="34" width="14" height="2" fill={c}/><rect x="20" y="36" width="4" height="4" fill={c}/>
-    </svg>
-  );
-  if (type === "wireless") return (
-    <svg width={size} height={size} viewBox="0 0 48 48" style={{ imageRendering: "pixelated" }}>
-      <rect x="6" y="14" width="8" height="10" fill={a}/><rect x="8" y="16" width="4" height="6" fill={b}/>
-      <rect x="9" y="24" width="2" height="6" fill={a}/><rect x="9" y="30" width="2" height="2" fill={c}/>
-      <rect x="34" y="14" width="8" height="10" fill={a}/><rect x="36" y="16" width="4" height="6" fill={b}/>
-      <rect x="37" y="24" width="2" height="6" fill={a}/><rect x="37" y="30" width="2" height="2" fill={c}/>
-    </svg>
-  );
-  if (type === "overear") return (
-    <svg width={size} height={size} viewBox="0 0 48 48" style={{ imageRendering: "pixelated" }}>
-      <rect x="12" y="4" width="24" height="2" fill={c}/><rect x="10" y="6" width="2" height="2" fill={c}/>
-      <rect x="36" y="6" width="2" height="2" fill={c}/><rect x="8" y="8" width="2" height="10" fill={c}/>
-      <rect x="38" y="8" width="2" height="10" fill={c}/>
-      <rect x="1" y="16" width="12" height="18" fill={a}/><rect x="3" y="18" width="8" height="14" fill={b}/><rect x="4" y="20" width="6" height="10" fill={d} opacity=".2"/>
-      <rect x="35" y="16" width="12" height="18" fill={a}/><rect x="37" y="18" width="8" height="14" fill={b}/><rect x="38" y="20" width="6" height="10" fill={d} opacity=".2"/>
-    </svg>
-  );
-  return (
-    <svg width={size} height={size} viewBox="0 0 48 48" style={{ imageRendering: "pixelated" }}>
-      <rect x="2" y="12" width="10" height="14" fill={a}/><rect x="4" y="14" width="6" height="10" fill={b}/><rect x="5" y="16" width="4" height="6" fill={a} opacity=".3"/>
-      <rect x="36" y="12" width="10" height="14" fill={a}/><rect x="38" y="14" width="6" height="10" fill={b}/><rect x="39" y="16" width="4" height="6" fill={a} opacity=".3"/>
-      <rect x="6" y="26" width="2" height="6" fill={c}/><rect x="40" y="26" width="2" height="6" fill={c}/>
-      <rect x="8" y="32" width="2" height="2" fill={c}/><rect x="38" y="32" width="2" height="2" fill={c}/>
-      <rect x="10" y="34" width="28" height="2" fill={c}/><rect x="22" y="36" width="4" height="4" fill={c}/>
-    </svg>
-  );
+function PH({ type = “wired”, connected = true, size = 120 }) {
+const a = “#f4845f”, b = “#faf0e6”, c = “#8a8078”, d = “#d4a574”;
+if (!connected) return (
+<svg width={size} height={size} viewBox=“0 0 48 48” style={{ imageRendering: “pixelated” }}>
+<rect x="4" y="16" width="8" height="12" fill={a}/><rect x="6" y="18" width="4" height="8" fill={b}/>
+<rect x="36" y="16" width="8" height="12" fill={d} opacity=".3"/>
+<rect x="6" y="28" width="2" height="6" fill={c}/><rect x="8" y="34" width="14" height="2" fill={c}/><rect x="20" y="36" width="4" height="4" fill={c}/>
+</svg>
+);
+if (type === “wireless”) return (
+<svg width={size} height={size} viewBox=“0 0 48 48” style={{ imageRendering: “pixelated” }}>
+<rect x="6" y="14" width="8" height="10" fill={a}/><rect x="8" y="16" width="4" height="6" fill={b}/>
+<rect x="9" y="24" width="2" height="6" fill={a}/><rect x="9" y="30" width="2" height="2" fill={c}/>
+<rect x="34" y="14" width="8" height="10" fill={a}/><rect x="36" y="16" width="4" height="6" fill={b}/>
+<rect x="37" y="24" width="2" height="6" fill={a}/><rect x="37" y="30" width="2" height="2" fill={c}/>
+</svg>
+);
+if (type === “overear”) return (
+<svg width={size} height={size} viewBox=“0 0 48 48” style={{ imageRendering: “pixelated” }}>
+<rect x="12" y="4" width="24" height="2" fill={c}/><rect x="10" y="6" width="2" height="2" fill={c}/>
+<rect x="36" y="6" width="2" height="2" fill={c}/><rect x="8" y="8" width="2" height="10" fill={c}/>
+<rect x="38" y="8" width="2" height="10" fill={c}/>
+<rect x="1" y="16" width="12" height="18" fill={a}/><rect x="3" y="18" width="8" height="14" fill={b}/><rect x="4" y="20" width="6" height="10" fill={d} opacity=".2"/>
+<rect x="35" y="16" width="12" height="18" fill={a}/><rect x="37" y="18" width="8" height="14" fill={b}/><rect x="38" y="20" width="6" height="10" fill={d} opacity=".2"/>
+</svg>
+);
+return (
+<svg width={size} height={size} viewBox=“0 0 48 48” style={{ imageRendering: “pixelated” }}>
+<rect x="2" y="12" width="10" height="14" fill={a}/><rect x="4" y="14" width="6" height="10" fill={b}/><rect x="5" y="16" width="4" height="6" fill={a} opacity=".3"/>
+<rect x="36" y="12" width="10" height="14" fill={a}/><rect x="38" y="14" width="6" height="10" fill={b}/><rect x="39" y="16" width="4" height="6" fill={a} opacity=".3"/>
+<rect x="6" y="26" width="2" height="6" fill={c}/><rect x="40" y="26" width="2" height="6" fill={c}/>
+<rect x="8" y="32" width="2" height="2" fill={c}/><rect x="38" y="32" width="2" height="2" fill={c}/>
+<rect x="10" y="34" width="28" height="2" fill={c}/><rect x="22" y="36" width="4" height="4" fill={c}/>
+</svg>
+);
 }
 
 // ─── Song Card ──────────────────────────────────────────────────────────
 function SongCard({ song, pair, expanded, onToggle, onAddComment, onUpdateSong, settings, comments, side }) {
-  const [draft, setDraft] = useState("");
-  const [editing, setEditing] = useState(false);
-  const [editCover, setEditCover] = useState("");
-  const [editLink, setEditLink] = useState("");
-  const [searchRes, setSearchRes] = useState([]);
-  const [searching, setSearching] = useState(false);
+const [draft, setDraft] = useState(””);
+const [editing, setEditing] = useState(false);
+const [editCover, setEditCover] = useState(””);
+const [editLink, setEditLink] = useState(””);
+const [searchRes, setSearchRes] = useState([]);
+const [searching, setSearching] = useState(false);
 
-  if (!song) return (<div className="card-empty"><div style={{ fontSize: 20, marginBottom: 8 }}>◌</div>等待回應<br/>Awaiting response</div>);
-  const post = async () => { if (!draft.trim()) return; await onAddComment(pair.id, "user", draft.trim()); setDraft(""); };
+if (!song) return (<div className="card-empty"><div style={{ fontSize: 20, marginBottom: 8 }}>◌</div>等待回應<br/>Awaiting response</div>);
+const post = async () => { if (!draft.trim()) return; await onAddComment(pair.id, “user”, draft.trim()); setDraft(””); };
 
-  const startEdit = (e) => { e.stopPropagation(); setEditCover(song.cover || ""); setEditLink(song.link || ""); setEditing(true); };
-  const saveEdit = async (e) => {
-    e.stopPropagation();
-    const updated = { ...song, cover: editCover, link: editLink };
-    const field = side === "claude" ? "claude_song" : "user_song";
-    await onUpdateSong(pair.id, field, updated);
-    setEditing(false); setSearchRes([]);
-  };
-  const doSearch = async (e) => {
-    e.stopPropagation(); setSearching(true);
-    try {
-      const q = `${song.artist} ${song.title}`;
-      const r = await api(`/search?q=${encodeURIComponent(q)}`);
-      setSearchRes(r || []);
-    } catch { setSearchRes([]); }
-    setSearching(false);
-  };
-  const pickRes = (r) => { setEditCover(r.cover); setEditLink(r.link); setSearchRes([]); };
+const startEdit = (e) => { e.stopPropagation(); setEditCover(song.cover || “”); setEditLink(song.link || “”); setEditing(true); };
+const saveEdit = async (e) => {
+e.stopPropagation();
+const updated = { …song, cover: editCover, link: editLink };
+const field = side === “claude” ? “claude_song” : “user_song”;
+await onUpdateSong(pair.id, field, updated);
+setEditing(false); setSearchRes([]);
+};
+const doSearch = async (e) => {
+e.stopPropagation(); setSearching(true);
+try {
+const q = `${song.artist} ${song.title}`;
+const r = await api(`/search?q=${encodeURIComponent(q)}`);
+setSearchRes(r || []);
+} catch { setSearchRes([]); }
+setSearching(false);
+};
+const pickRes = (r) => { setEditCover(r.cover); setEditLink(r.link); setSearchRes([]); };
 
-  return (
-    <div className={`card ${expanded ? "expanded" : ""}`} onClick={onToggle}>
-      <div className="cover">
-        {song.cover ? <img src={song.cover} alt="" /> : <div className="vinyl" />}
-        {song.album && <div className="album-label">{song.album}</div>}
-      </div>
-      <div className="song-title">{song.title}</div>
-      <div className="song-artist">{song.artist}</div>
-      {song.link && <a href={song.link} target="_blank" rel="noopener noreferrer" onClick={e => e.stopPropagation()} className="listen-link">♫ Listen →</a>}
-      <div style={{ marginTop: 6 }}>
-        {Object.entries(song.tags || {}).map(([cat, tag]) => {
-          const col = TAG_COLORS[cat] || TAG_COLORS.custom;
-          return <span key={cat} className="tag" style={{ border: `1px solid ${col}`, color: col, background: `${col}11` }}>{tag}</span>;
-        })}
-      </div>
-      {expanded && (
-        <div onClick={e => e.stopPropagation()}>
-          <div className="theme-bar">⇄ {pair.theme}</div>
-          {song.note && <div className="note">"{song.note}"</div>}
-          {!editing && <button onClick={startEdit} style={{ fontSize: 10, color: "var(--muted)", background: "none", border: "1px solid var(--light)", padding: "4px 10px", cursor: "pointer", fontFamily: "inherit", marginTop: 8 }}>✎ 編輯封面/鏈接 Edit</button>}
-          {editing && (
-            <div style={{ marginTop: 8, padding: 10, border: "1px solid var(--light)", background: "var(--bg)" }} onClick={e => e.stopPropagation()}>
-              <div style={{ fontSize: 10, color: "var(--muted)", marginBottom: 6 }}>封面 URL</div>
-              <input className="input" value={editCover} onChange={e => setEditCover(e.target.value)} placeholder="https://..." />
-              <div style={{ fontSize: 10, color: "var(--muted)", marginBottom: 6 }}>鏈接 Link</div>
-              <input className="input" value={editLink} onChange={e => setEditLink(e.target.value)} placeholder="https://..." />
-              <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                <button className="btn small" onClick={doSearch} disabled={searching} style={{ fontSize: 10, padding: "6px 10px" }}>{searching ? "..." : "🔍 自動搜索"}</button>
-                <button className="btn small active" onClick={saveEdit} style={{ fontSize: 10, padding: "6px 10px" }}>✓ 保存</button>
-                <button className="btn small" onClick={e => { e.stopPropagation(); setEditing(false); setSearchRes([]); }} style={{ fontSize: 10, padding: "6px 10px" }}>✕ 取消</button>
-              </div>
-              {searchRes.length > 0 && (
-                <div style={{ border: "1px solid var(--border)", background: "var(--card)", marginTop: 6, maxHeight: 150, overflow: "auto" }}>
-                  {searchRes.map((r, i) => (
-                    <div key={i} onClick={() => pickRes(r)} style={{ display: "flex", gap: 6, padding: 6, cursor: "pointer", borderBottom: "1px solid var(--light)", alignItems: "center" }}
-                      onMouseEnter={e => e.currentTarget.style.background = "#fce4d6"} onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                      {r.cover && <img src={r.cover} style={{ width: 28, height: 28, objectFit: "cover" }} />}
-                      <div style={{ fontSize: 10 }}>{r.title} — {r.artist}</div>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {editCover && <img src={editCover} style={{ width: 48, height: 48, objectFit: "cover", marginTop: 6, border: "1px solid var(--light)" }} />}
-            </div>
-          )}
-          <div className="comments-section">
-            <div className="comments-label">COMMENTS 留言</div>
-            {comments.map((cm, i) => (
-              <div key={i} className={`comment-row ${cm.sender}`}>
-                <div className="comment-avatar">{cm.sender === "claude" ? settings.claudeIcon : settings.userIcon}</div>
-                <div className={`comment-bubble ${cm.sender}`}>{cm.text}</div>
-              </div>
-            ))}
-            {comments.length === 0 && <div style={{ fontSize: 10, color: "#c4b4a0", fontStyle: "italic", marginBottom: 8 }}>還沒有留言</div>}
-            <div className="comment-input">
-              <input placeholder="留言..." value={draft} onChange={e => setDraft(e.target.value)} onKeyDown={e => { if (e.key === "Enter") post(); }} />
-              <button onClick={post}>↵</button>
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
-  );
+return (
+<div className={`card ${expanded ? "expanded" : ""}`} onClick={onToggle}>
+<div className="cover">
+{song.cover ? <img src={song.cover} alt="" /> : <div className="vinyl" />}
+{song.album && <div className="album-label">{song.album}</div>}
+</div>
+<div className="song-title">{song.title}</div>
+<div className="song-artist">{song.artist}</div>
+{song.link && <a href={song.link} target=”_blank” rel=“noopener noreferrer” onClick={e => e.stopPropagation()} className=“listen-link”>♫ Listen →</a>}
+<div style={{ marginTop: 6 }}>
+{Object.entries(song.tags || {}).map(([cat, tag]) => {
+const col = TAG_COLORS[cat] || TAG_COLORS.custom;
+return <span key={cat} className=“tag” style={{ border: `1px solid ${col}`, color: col, background: `${col}11` }}>{tag}</span>;
+})}
+</div>
+{expanded && (
+<div onClick={e => e.stopPropagation()}>
+<div className="theme-bar">⇄ {pair.theme}</div>
+{song.note && <div className="note">”{song.note}”</div>}
+{!editing && <button onClick={startEdit} style={{ fontSize: 10, color: “var(–muted)”, background: “none”, border: “1px solid var(–light)”, padding: “4px 10px”, cursor: “pointer”, fontFamily: “inherit”, marginTop: 8 }}>✎ 編輯封面/鏈接 Edit</button>}
+{editing && (
+<div style={{ marginTop: 8, padding: 10, border: “1px solid var(–light)”, background: “var(–bg)” }} onClick={e => e.stopPropagation()}>
+<div style={{ fontSize: 10, color: “var(–muted)”, marginBottom: 6 }}>封面 URL</div>
+<input className=“input” value={editCover} onChange={e => setEditCover(e.target.value)} placeholder=“https://…” />
+<div style={{ fontSize: 10, color: “var(–muted)”, marginBottom: 6 }}>鏈接 Link</div>
+<input className=“input” value={editLink} onChange={e => setEditLink(e.target.value)} placeholder=“https://…” />
+<div style={{ display: “flex”, gap: 6, flexWrap: “wrap” }}>
+<button className=“btn small” onClick={doSearch} disabled={searching} style={{ fontSize: 10, padding: “6px 10px” }}>{searching ? “…” : “🔍 自動搜索”}</button>
+<button className=“btn small active” onClick={saveEdit} style={{ fontSize: 10, padding: “6px 10px” }}>✓ 保存</button>
+<button className=“btn small” onClick={e => { e.stopPropagation(); setEditing(false); setSearchRes([]); }} style={{ fontSize: 10, padding: “6px 10px” }}>✕ 取消</button>
+</div>
+{searchRes.length > 0 && (
+<div style={{ border: “1px solid var(–border)”, background: “var(–card)”, marginTop: 6, maxHeight: 150, overflow: “auto” }}>
+{searchRes.map((r, i) => (
+<div key={i} onClick={() => pickRes(r)} style={{ display: “flex”, gap: 6, padding: 6, cursor: “pointer”, borderBottom: “1px solid var(–light)”, alignItems: “center” }}
+onMouseEnter={e => e.currentTarget.style.background = “#fce4d6”} onMouseLeave={e => e.currentTarget.style.background = “transparent”}>
+{r.cover && <img src={r.cover} style={{ width: 28, height: 28, objectFit: “cover” }} />}
+<div style={{ fontSize: 10 }}>{r.title} — {r.artist}</div>
+</div>
+))}
+</div>
+)}
+{editCover && <img src={editCover} style={{ width: 48, height: 48, objectFit: “cover”, marginTop: 6, border: “1px solid var(–light)” }} />}
+</div>
+)}
+<div className="comments-section">
+<div className="comments-label">COMMENTS 留言</div>
+{comments.map((cm, i) => (
+<div key={i} className={`comment-row ${cm.sender}`}>
+<div className="comment-avatar">{cm.sender === “claude” ? settings.claudeIcon : settings.userIcon}</div>
+<div className={`comment-bubble ${cm.sender}`}>{cm.text}</div>
+</div>
+))}
+{comments.length === 0 && <div style={{ fontSize: 10, color: “#c4b4a0”, fontStyle: “italic”, marginBottom: 8 }}>還沒有留言</div>}
+<div className="comment-input">
+<input placeholder=“留言…” value={draft} onChange={e => setDraft(e.target.value)} onKeyDown={e => { if (e.key === “Enter”) post(); }} />
+<button onClick={post}>↵</button>
+</div>
+</div>
+</div>
+)}
+</div>
+);
 }
 
 // ─── Tag Filter ─────────────────────────────────────────────────────────
 function TagFilter({ activeTags, toggleTag, clearTags, customTags }) {
-  const [oc, setOc] = useState(null);
-  const all = { ...TAGS }; if (customTags?.length) all.custom = customTags;
-  return (
-    <div className="filter-bar">
-      <span className="filter-label">FILTER</span>
-      {Object.entries(all).map(([cat, tags]) => {
-        const isOpen = oc === cat, active = tags.filter(t => activeTags.includes(t));
-        return (
-          <div key={cat} className="filter-cat">
-            <button className={`filter-cat-btn ${isOpen ? "open" : ""} ${active.length ? "has-active" : ""}`} onClick={() => setOc(isOpen ? null : cat)}>
-              {TAG_LABELS[cat] || "自定義 Custom"} {active.length > 0 && `(${active.length})`}
-            </button>
-            {isOpen && (
-              <div className="filter-dropdown">
-                {tags.map(tag => {
-                  const col = TAG_COLORS[cat] || TAG_COLORS.custom;
-                  const on = activeTags.includes(tag);
-                  return <button key={tag} className="filter-tag" onClick={() => toggleTag(tag)} style={{ border: `1px solid ${on ? col : "var(--shadow)"}`, background: on ? col : "transparent", color: on ? "var(--cream)" : "#8a7a68" }}>{tag}</button>;
-                })}
-              </div>
-            )}
-          </div>
-        );
-      })}
-      {activeTags.length > 0 && <button className="clear-btn" onClick={clearTags}>✕</button>}
-    </div>
-  );
+const [oc, setOc] = useState(null);
+const all = { …TAGS }; if (customTags?.length) all.custom = customTags;
+return (
+<div className="filter-bar">
+<span className="filter-label">FILTER</span>
+{Object.entries(all).map(([cat, tags]) => {
+const isOpen = oc === cat, active = tags.filter(t => activeTags.includes(t));
+return (
+<div key={cat} className="filter-cat">
+<button className={`filter-cat-btn ${isOpen ? "open" : ""} ${active.length ? "has-active" : ""}`} onClick={() => setOc(isOpen ? null : cat)}>
+{TAG_LABELS[cat] || “自定義 Custom”} {active.length > 0 && `(${active.length})`}
+</button>
+{isOpen && (
+<div className="filter-dropdown">
+{tags.map(tag => {
+const col = TAG_COLORS[cat] || TAG_COLORS.custom;
+const on = activeTags.includes(tag);
+return <button key={tag} className=“filter-tag” onClick={() => toggleTag(tag)} style={{ border: `1px solid ${on ? col : "var(--shadow)"}`, background: on ? col : “transparent”, color: on ? “var(–cream)” : “#8a7a68” }}>{tag}</button>;
+})}
+</div>
+)}
+</div>
+);
+})}
+{activeTags.length > 0 && <button className="clear-btn" onClick={clearTags}>✕</button>}
+</div>
+);
 }
 
 // ─── History Card ───────────────────────────────────────────────────────
 function HistCard({ pair: p, settings: s, onClick }) {
-  return (
-    <div className="hist-card" onClick={onClick}>
-      <div className="hist-meta">
-        <span style={{ color: p.asked_by === "claude" ? "var(--accent)" : "var(--place)" }}>{p.asked_by === "claude" ? s.claudeName : s.userName}</span>
-        {" asked · "}<span style={{ color: p.user_song ? "var(--place)" : "var(--time)" }}>{p.user_song ? "✓" : "⏳"}</span>
-      </div>
-      <div className="hist-theme">"{p.theme?.split("/")[0].trim()}"</div>
-      <div className="hist-songs">
-        <div className="hist-side"><span style={{ fontSize: 14 }}>{s.claudeIcon}</span>{p.claude_song ? <div><div style={{ fontSize: 11, fontWeight: 700, color: "var(--text)" }}>{p.claude_song.title}</div><div style={{ fontSize: 9, color: "var(--muted)" }}>{p.claude_song.artist}</div></div> : <span style={{ fontSize: 9, color: "#c4b4a0" }}>—</span>}</div>
-        <span style={{ fontSize: 14, color: "var(--shadow)" }}>⇄</span>
-        <div className="hist-side right">{p.user_song ? <div style={{ textAlign: "right" }}><div style={{ fontSize: 11, fontWeight: 700, color: "var(--text)" }}>{p.user_song.title}</div><div style={{ fontSize: 9, color: "var(--muted)" }}>{p.user_song.artist}</div></div> : <span style={{ fontSize: 9, color: "#c4b4a0" }}>—</span>}<span style={{ fontSize: 14 }}>{s.userIcon}</span></div>
-      </div>
-    </div>
-  );
+return (
+<div className="hist-card" onClick={onClick}>
+<div className="hist-meta">
+<span style={{ color: p.asked_by === “claude” ? “var(–accent)” : “var(–place)” }}>{p.asked_by === “claude” ? s.claudeName : s.userName}</span>
+{” asked · “}<span style={{ color: p.user_song ? “var(–place)” : “var(–time)” }}>{p.user_song ? “✓” : “⏳”}</span>
+</div>
+<div className="hist-theme">”{p.theme?.split(”/”)[0].trim()}”</div>
+<div className="hist-songs">
+<div className="hist-side"><span style={{ fontSize: 14 }}>{s.claudeIcon}</span>{p.claude_song ? <div><div style={{ fontSize: 11, fontWeight: 700, color: “var(–text)” }}>{p.claude_song.title}</div><div style={{ fontSize: 9, color: “var(–muted)” }}>{p.claude_song.artist}</div></div> : <span style={{ fontSize: 9, color: “#c4b4a0” }}>—</span>}</div>
+<span style={{ fontSize: 14, color: “var(–shadow)” }}>⇄</span>
+<div className="hist-side right">{p.user_song ? <div style={{ textAlign: “right” }}><div style={{ fontSize: 11, fontWeight: 700, color: “var(–text)” }}>{p.user_song.title}</div><div style={{ fontSize: 9, color: “var(–muted)” }}>{p.user_song.artist}</div></div> : <span style={{ fontSize: 9, color: “#c4b4a0” }}>—</span>}<span style={{ fontSize: 14 }}>{s.userIcon}</span></div>
+</div>
+</div>
+);
 }
 
 // ─── Settings Modal ─────────────────────────────────────────────────────
 function SettingsModal({ settings: s, setSettings: ss, onSave, onClose }) {
-  const [po, setPo] = useState(null);
-  return (
-    <div className="overlay" onClick={onClose}><div className="modal" onClick={e => e.stopPropagation()}>
-      <div className="modal-title">⚙ SETTINGS 設定</div>
-      {["claude", "user"].map(side => (
-        <div key={side} className="setting-row">
-          <div style={{ fontSize: 10, color: "var(--muted)", marginBottom: 8 }}>{side === "claude" ? "LEFT 左側" : "RIGHT 右側"}</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div style={{ position: "relative" }}>
-              <button className="emoji-btn" style={{ width: 36, height: 36, fontSize: 18, border: "2px solid var(--border)", background: "var(--cream)" }} onClick={() => setPo(po === side ? null : side)}>{s[`${side}Icon`]}</button>
-              {po === side && <div className="emoji-grid">{EMOJIS.map(e => <button key={e} className={`emoji-btn ${s[`${side}Icon`] === e ? "active" : ""}`} onClick={() => { ss(p => ({ ...p, [`${side}Icon`]: e })); setPo(null); }}>{e}</button>)}</div>}
-            </div>
-            <input className="input" style={{ marginBottom: 0 }} value={s[`${side}Name`]} onChange={e => ss(p => ({ ...p, [`${side}Name`]: e.target.value }))} />
-          </div>
-        </div>
-      ))}
-      <div style={{ marginBottom: 16 }}>
-        <div style={{ fontSize: 10, color: "var(--muted)", marginBottom: 8 }}>HEADPHONE 耳機</div>
-        <div style={{ display: "flex", gap: 6 }}>
-          {[["wired", "有線"], ["wireless", "無線"], ["overear", "頭戴"]].map(([t, l]) => (
-            <button key={t} className={`btn small ${s.headphoneType === t ? "active" : ""}`} style={{ padding: "6px 12px", fontSize: 10 }} onClick={() => ss(p => ({ ...p, headphoneType: t }))}>{l}</button>
-          ))}
-        </div>
-      </div>
-      <button onClick={() => { localStorage.removeItem("crosstalk_api_url"); window.location.reload(); }} style={{ width: "100%", padding: 8, border: "1px solid var(--light)", background: "transparent", color: "var(--muted)", cursor: "pointer", fontSize: 10, fontFamily: "inherit", marginBottom: 8 }}>🔄 更換 Supabase URL</button>
-      <button className="submit-btn" style={{ width: "100%" }} onClick={() => { onSave(); onClose(); }}>完成 Done</button>
-    </div></div>
-  );
+const [po, setPo] = useState(null);
+return (
+<div className="overlay" onClick={onClose}><div className=“modal” onClick={e => e.stopPropagation()}>
+<div className="modal-title">⚙ SETTINGS 設定</div>
+{[“claude”, “user”].map(side => (
+<div key={side} className="setting-row">
+<div style={{ fontSize: 10, color: “var(–muted)”, marginBottom: 8 }}>{side === “claude” ? “LEFT 左側” : “RIGHT 右側”}</div>
+<div style={{ display: “flex”, alignItems: “center”, gap: 8 }}>
+<div style={{ position: “relative” }}>
+<button className=“emoji-btn” style={{ width: 36, height: 36, fontSize: 18, border: “2px solid var(–border)”, background: “var(–cream)” }} onClick={() => setPo(po === side ? null : side)}>{s[`${side}Icon`]}</button>
+{po === side && <div className="emoji-grid">{EMOJIS.map(e => <button key={e} className={`emoji-btn ${s[`${side}Icon`] === e ? "active" : ""}`} onClick={() => { ss(p => ({ …p, [`${side}Icon`]: e })); setPo(null); }}>{e}</button>)}</div>}
+</div>
+<input className=“input” style={{ marginBottom: 0 }} value={s[`${side}Name`]} onChange={e => ss(p => ({ …p, [`${side}Name`]: e.target.value }))} />
+</div>
+</div>
+))}
+<div style={{ marginBottom: 16 }}>
+<div style={{ fontSize: 10, color: “var(–muted)”, marginBottom: 8 }}>HEADPHONE 耳機</div>
+<div style={{ display: “flex”, gap: 6 }}>
+{[[“wired”, “有線”], [“wireless”, “無線”], [“overear”, “頭戴”]].map(([t, l]) => (
+<button key={t} className={`btn small ${s.headphoneType === t ? "active" : ""}`} style={{ padding: “6px 12px”, fontSize: 10 }} onClick={() => ss(p => ({ …p, headphoneType: t }))}>{l}</button>
+))}
+</div>
+</div>
+<button onClick={() => { localStorage.removeItem(“crosstalk_api_url”); window.location.reload(); }} style={{ width: “100%”, padding: 8, border: “1px solid var(–light)”, background: “transparent”, color: “var(–muted)”, cursor: “pointer”, fontSize: 10, fontFamily: “inherit”, marginBottom: 8 }}>🔄 更換 Supabase URL</button>
+<button className=“submit-btn” style={{ width: “100%” }} onClick={() => { onSave(); onClose(); }}>完成 Done</button>
+</div></div>
+);
 }
 
 // ─── Main App ───────────────────────────────────────────────────────────
 function App() {
-  const [ready, setReady] = useState(!!getApiUrl());
-  if (!ready) return (<SetupScreen onDone={() => setReady(true)} />);
-  const [page, setPage] = useState("home");
-  const [exp, setExp] = useState(null);
-  const [at, setAt] = useState([]);
-  const [ms, setMs] = useState("both");
-  const [scrollTop, setScrollTop] = useState(false);
-  const [showSet, setShowSet] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [err, setErr] = useState(null);
-  const [sub, setSub] = useState(false);
+const [ready, setReady] = useState(!!getApiUrl());
+if (!ready) return (<SetupScreen onDone={() => setReady(true)} />);
+const [page, setPage] = useState(“home”);
+const [exp, setExp] = useState(null);
+const [at, setAt] = useState([]);
+const [ms, setMs] = useState(“both”);
+const [scrollTop, setScrollTop] = useState(false);
+const [showSet, setShowSet] = useState(false);
+const [loading, setLoading] = useState(true);
+const [err, setErr] = useState(null);
+const [sub, setSub] = useState(false);
 
-  const [pairs, setPairs] = useState([]);
-  const [comments, setComments] = useState({});
-  const [settings, setSettings] = useState({ claudeIcon: "🍊", claudeName: "Claude", userIcon: "🎧", userName: "You", headphoneType: "wired" });
-  const [customTags, setCustomTags] = useState([]);
+const [pairs, setPairs] = useState([]);
+const [comments, setComments] = useState({});
+const [settings, setSettings] = useState({ claudeIcon: “🍊”, claudeName: “Claude”, userIcon: “🎧”, userName: “You”, headphoneType: “wired” });
+const [customTags, setCustomTags] = useState([]);
 
-  const [exMode, setExMode] = useState("user");
-  const [exTheme, setExTheme] = useState("");
-  const [exSong, setExSong] = useState("");
-  const [exArtist, setExArtist] = useState("");
-  const [exAlbum, setExAlbum] = useState("");
-  const [exCover, setExCover] = useState("");
-  const [exLink, setExLink] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [searching, setSearching] = useState(false);
-  const [exNote, setExNote] = useState("");
-  const [exTags, setExTags] = useState({});
-  const [exCust, setExCust] = useState("");
+const [exMode, setExMode] = useState(“user”);
+const [exTheme, setExTheme] = useState(””);
+const [exSong, setExSong] = useState(””);
+const [exArtist, setExArtist] = useState(””);
+const [exAlbum, setExAlbum] = useState(””);
+const [exCover, setExCover] = useState(””);
+const [exLink, setExLink] = useState(””);
+const [searchResults, setSearchResults] = useState([]);
+const [searching, setSearching] = useState(false);
+const [exNote, setExNote] = useState(””);
+const [exTags, setExTags] = useState({});
+const [exCust, setExCust] = useState(””);
 
-  const refs = useRef({});
+const refs = useRef({});
 
-  const loadData = useCallback(async () => {
-    try {
-      setErr(null);
-      const [p, c, s] = await Promise.all([api("/pairs"), api("/comments"), api("/settings")]);
-      setPairs(p || []);
-      const grouped = {}; (c || []).forEach(x => { if (!grouped[x.pair_id]) grouped[x.pair_id] = []; grouped[x.pair_id].push(x); });
-      setComments(grouped);
-      if (s) { setSettings({ claudeIcon: s.claude_icon || "🍊", claudeName: s.claude_name || "Claude", userIcon: s.user_icon || "🎧", userName: s.user_name || "You", headphoneType: s.headphone_type || "wired" }); setCustomTags(s.custom_tags || []); }
-      setLoading(false);
-    } catch (e) { setErr(e.message); setLoading(false); }
-  }, []);
+const loadData = useCallback(async () => {
+try {
+setErr(null);
+const [p, c, s] = await Promise.all([api(”/pairs”), api(”/comments”), api(”/settings”)]);
+setPairs(p || []);
+const grouped = {}; (c || []).forEach(x => { if (!grouped[x.pair_id]) grouped[x.pair_id] = []; grouped[x.pair_id].push(x); });
+setComments(grouped);
+if (s) { setSettings({ claudeIcon: s.claude_icon || “🍊”, claudeName: s.claude_name || “Claude”, userIcon: s.user_icon || “🎧”, userName: s.user_name || “You”, headphoneType: s.headphone_type || “wired” }); setCustomTags(s.custom_tags || []); }
+setLoading(false);
+} catch (e) { setErr(e.message); setLoading(false); }
+}, []);
 
-  useEffect(() => { loadData(); }, [loadData]);
-  useEffect(() => { const s = () => setScrollTop(window.scrollY > 300); window.addEventListener("scroll", s); return () => window.removeEventListener("scroll", s); }, []);
+useEffect(() => { loadData(); }, [loadData]);
+useEffect(() => { const s = () => setScrollTop(window.scrollY > 300); window.addEventListener(“scroll”, s); return () => window.removeEventListener(“scroll”, s); }, []);
 
-  const toggleTag = t => setAt(p => p.includes(t) ? p.filter(x => x !== t) : [...p, t]);
-  const filtered = at.length === 0 ? pairs : pairs.filter(p => {
-    const tags = [...Object.values(p.claude_song?.tags || {}), ...Object.values(p.user_song?.tags || {})];
-    return at.every(t => tags.includes(t));
-  });
+const toggleTag = t => setAt(p => p.includes(t) ? p.filter(x => x !== t) : […p, t]);
+const filtered = at.length === 0 ? pairs : pairs.filter(p => {
+const tags = […Object.values(p.claude_song?.tags || {}), …Object.values(p.user_song?.tags || {})];
+return at.every(t => tags.includes(t));
+});
 
-  const jump = useCallback(id => { setPage("home"); setExp(`c-${id}`); setTimeout(() => { refs.current[`c-${id}`]?.scrollIntoView({ behavior: "smooth", block: "center" }); }, 100); }, []);
+const jump = useCallback(id => { setPage(“home”); setExp(`c-${id}`); setTimeout(() => { refs.current[`c-${id}`]?.scrollIntoView({ behavior: “smooth”, block: “center” }); }, 100); }, []);
 
-  const addComment = useCallback(async (pid, sender, text) => {
-    const r = await api("/comments", "POST", { pair_id: pid, sender, text });
-    if (r) setComments(p => ({ ...p, [pid]: [...(p[pid] || []), r] }));
-  }, []);
+const addComment = useCallback(async (pid, sender, text) => {
+const r = await api(”/comments”, “POST”, { pair_id: pid, sender, text });
+if (r) setComments(p => ({ …p, [pid]: […(p[pid] || []), r] }));
+}, []);
 
-  const updateSong = useCallback(async (pid, field, songData) => {
-    const r = await api(`/pairs/${pid}`, "PATCH", { [field]: songData });
-    if (r) setPairs(p => p.map(x => x.id === pid ? r : x));
-  }, []);
+const updateSong = useCallback(async (pid, field, songData) => {
+const r = await api(`/pairs/${pid}`, “PATCH”, { [field]: songData });
+if (r) setPairs(p => p.map(x => x.id === pid ? r : x));
+}, []);
 
-  const saveSettings = useCallback(async () => {
-    await api("/settings", "PATCH", { claude_icon: settings.claudeIcon, claude_name: settings.claudeName, user_icon: settings.userIcon, user_name: settings.userName, headphone_type: settings.headphoneType, custom_tags: customTags });
-  }, [settings, customTags]);
+const saveSettings = useCallback(async () => {
+await api(”/settings”, “PATCH”, { claude_icon: settings.claudeIcon, claude_name: settings.claudeName, user_icon: settings.userIcon, user_name: settings.userName, headphone_type: settings.headphoneType, custom_tags: customTags });
+}, [settings, customTags]);
 
-  async function searchMusic() {
-    if (!exSong.trim() && !exArtist.trim()) return;
-    setSearching(true);
-    try {
-      const q = `${exArtist.trim()} ${exSong.trim()}`;
-      const results = await api(`/search?q=${encodeURIComponent(q)}`);
-      setSearchResults(results || []);
-    } catch { setSearchResults([]); }
-    setSearching(false);
-  }
+async function searchMusic() {
+if (!exSong.trim() && !exArtist.trim()) return;
+setSearching(true);
+try {
+const q = `${exArtist.trim()} ${exSong.trim()}`;
+const results = await api(`/search?q=${encodeURIComponent(q)}`);
+setSearchResults(results || []);
+} catch { setSearchResults([]); }
+setSearching(false);
+}
 
-  function pickResult(r) {
-    setExSong(r.title); setExArtist(r.artist); setExAlbum(r.album);
-    setExCover(r.cover); setExLink(r.link);
-    setSearchResults([]);
-  }
+function pickResult(r) {
+setExSong(r.title); setExArtist(r.artist); setExAlbum(r.album);
+setExCover(r.cover); setExLink(r.link);
+setSearchResults([]);
+}
 
-  function clearForm() {
-    setExTheme(""); setExSong(""); setExArtist(""); setExAlbum(""); setExNote(""); setExTags({}); setExCust(""); setExCover(""); setExLink(""); setSearchResults([]);
-  }
+function clearForm() {
+setExTheme(””); setExSong(””); setExArtist(””); setExAlbum(””); setExNote(””); setExTags({}); setExCust(””); setExCover(””); setExLink(””); setSearchResults([]);
+}
 
-  async function submitExchange() {
-    if (!exTheme.trim() || !exSong.trim() || !exArtist.trim()) return;
-    setSub(true);
-    const song = { title: exSong.trim(), artist: exArtist.trim(), album: exAlbum.trim(), cover: exCover, link: exLink, note: exNote.trim(), tags: { ...exTags } };
-    if (exCust.trim()) { song.tags.custom = exCust.trim(); if (!customTags.includes(exCust.trim())) { const nt = [...customTags, exCust.trim()]; setCustomTags(nt); api("/settings", "PATCH", { custom_tags: nt }); } }
-    const r = await api("/pairs", "POST", { theme: exTheme.trim(), asked_by: "user", user_song: song, claude_song: null });
-    if (r) setPairs(p => [r, ...p]);
-    clearForm();
-    setSub(false);
-  }
+async function submitExchange() {
+if (!exTheme.trim() || !exSong.trim() || !exArtist.trim()) return;
+setSub(true);
+const song = { title: exSong.trim(), artist: exArtist.trim(), album: exAlbum.trim(), cover: exCover, link: exLink, note: exNote.trim(), tags: { …exTags } };
+if (exCust.trim()) { song.tags.custom = exCust.trim(); if (!customTags.includes(exCust.trim())) { const nt = […customTags, exCust.trim()]; setCustomTags(nt); api(”/settings”, “PATCH”, { custom_tags: nt }); } }
+const r = await api(”/pairs”, “POST”, { theme: exTheme.trim(), asked_by: “user”, user_song: song, claude_song: null });
+if (r) setPairs(p => [r, …p]);
+clearForm();
+setSub(false);
+}
 
-  async function respondToQ(pid) {
-    if (!exSong.trim() || !exArtist.trim()) return;
-    setSub(true);
-    const song = { title: exSong.trim(), artist: exArtist.trim(), album: exAlbum.trim(), cover: exCover, link: exLink, note: exNote.trim(), tags: { ...exTags } };
-    if (exCust.trim()) song.tags.custom = exCust.trim();
-    const r = await api(`/pairs/${pid}`, "PATCH", { user_song: song });
-    if (r) setPairs(p => p.map(x => x.id === pid ? r : x));
-    clearForm();
-    setSub(false);
-  }
+async function respondToQ(pid) {
+if (!exSong.trim() || !exArtist.trim()) return;
+setSub(true);
+const song = { title: exSong.trim(), artist: exArtist.trim(), album: exAlbum.trim(), cover: exCover, link: exLink, note: exNote.trim(), tags: { …exTags } };
+if (exCust.trim()) song.tags.custom = exCust.trim();
+const r = await api(`/pairs/${pid}`, “PATCH”, { user_song: song });
+if (r) setPairs(p => p.map(x => x.id === pid ? r : x));
+clearForm();
+setSub(false);
+}
 
-  const has = pairs.some(p => p.claude_song || p.user_song);
-  const pending = pairs.find(p => p.asked_by === "claude" && !p.user_song);
+const has = pairs.some(p => p.claude_song || p.user_song);
+const pending = pairs.find(p => p.asked_by === “claude” && !p.user_song);
 
-  if (loading) return (<div className="loading"><span style={{ color: "var(--accent)", fontSize: 11 }}>Loading Crosstalk<span className="dots"></span></span></div>);
-  if (err) return (<div className="loading"><div style={{ textAlign: "center" }}><div style={{ fontSize: 24, marginBottom: 12 }}>⚠</div><div style={{ fontSize: 12, color: "var(--accent)", marginBottom: 8 }}>Connection Error</div><div style={{ fontSize: 11, color: "var(--border)", marginBottom: 16 }}>{err}</div><button className="submit-btn" onClick={loadData}>重試 Retry</button></div></div>);
+if (loading) return (<div className="loading"><span style={{ color: “var(–accent)”, fontSize: 11 }}>Loading Crosstalk<span className="dots"></span></span></div>);
+if (err) return (<div className="loading"><div style={{ textAlign: “center” }}><div style={{ fontSize: 24, marginBottom: 12 }}>⚠</div><div style={{ fontSize: 12, color: “var(–accent)”, marginBottom: 8 }}>Connection Error</div><div style={{ fontSize: 11, color: “var(–border)”, marginBottom: 16 }}>{err}</div><button className="submit-btn" onClick={loadData}>重試 Retry</button></div></div>);
 
-  const tagSel = () => (
+const tagSel = () => (
+<>
+{Object.entries(TAGS).map(([cat, tags]) => (
+<div key={cat} className="tag-section">
+<span className=“tag-section-label” style={{ color: TAG_COLORS[cat] }}>{TAG_LABELS[cat]}</span>
+<div className="tag-row">
+{tags.map(tag => { const col = TAG_COLORS[cat]; const on = exTags[cat] === tag; return (
+<button key={tag} className=“filter-tag” onClick={() => setExTags(p => ({ …p, [cat]: on ? undefined : tag }))} style={{ border: `1px solid ${on ? col : "var(--shadow)"}`, background: on ? col : “transparent”, color: on ? “var(–cream)” : “#8a7a68” }}>{tag}</button>
+); })}
+</div>
+</div>
+))}
+<div className="tag-section"><span className=“tag-section-label” style={{ color: “var(–custom)” }}>自定義 Custom</span><input className=“input” style={{ marginTop: 4 }} placeholder=“Custom tag…” value={exCust} onChange={e => setExCust(e.target.value)} /></div>
+</>
+);
+
+const colClass = ms === “claude” ? “hide-user” : ms === “user” ? “hide-claude” : “”;
+
+return (
+<div className="wrap">
+<div className="header">
+<div style={{ display: “flex”, justifyContent: “center” }}><PH type={settings.headphoneType} connected={has} size={80} /></div>
+<h1>Crosstalk</h1>
+</div>
+<div className=“gear” onClick={() => setShowSet(true)}><PH type={settings.headphoneType} connected size={28} /><div>⚙</div></div>
+
+```
+  <div className="nav">
+    <button className={`btn ${page === "home" ? "active" : ""}`} onClick={() => setPage("home")}>♫ 卡片庫 Library</button>
+    <button className={`btn ${page === "exchange" ? "active" : ""}`} onClick={() => setPage("exchange")}>⇄ 交換 Exchange</button>
+    <button className="btn small" onClick={loadData} title="Refresh">↻</button>
+  </div>
+
+  {page === "home" && (
     <>
-      {Object.entries(TAGS).map(([cat, tags]) => (
-        <div key={cat} className="tag-section">
-          <span className="tag-section-label" style={{ color: TAG_COLORS[cat] }}>{TAG_LABELS[cat]}</span>
-          <div className="tag-row">
-            {tags.map(tag => { const col = TAG_COLORS[cat]; const on = exTags[cat] === tag; return (
-              <button key={tag} className="filter-tag" onClick={() => setExTags(p => ({ ...p, [cat]: on ? undefined : tag }))} style={{ border: `1px solid ${on ? col : "var(--shadow)"}`, background: on ? col : "transparent", color: on ? "var(--cream)" : "#8a7a68" }}>{tag}</button>
-            ); })}
-          </div>
+      <TagFilter activeTags={at} toggleTag={toggleTag} clearTags={() => setAt([])} customTags={customTags} />
+      <div className="mobile-switcher">
+        <button className={ms === "claude" ? "active" : ""} onClick={() => setMs("claude")}>{settings.claudeIcon} {settings.claudeName}</button>
+        <div className="switch-dots">
+          {["claude", "both", "user"].map(s => (<div key={s} className={`switch-dot ${s === "both" ? "mid" : ""} ${ms === s ? "active" : ""}`} onClick={() => setMs(s)} />))}
         </div>
-      ))}
-      <div className="tag-section"><span className="tag-section-label" style={{ color: "var(--custom)" }}>自定義 Custom</span><input className="input" style={{ marginTop: 4 }} placeholder="Custom tag..." value={exCust} onChange={e => setExCust(e.target.value)} /></div>
+        <button className={ms === "user" ? "active" : ""} onClick={() => setMs("user")}>{settings.userName} {settings.userIcon}</button>
+      </div>
+      {pairs.length === 0 && <div className="empty-state"><div className="icon">♫</div><div style={{ fontSize: 12, lineHeight: 1.8 }}>還沒有歌曲<br/>Go to Exchange to start!</div></div>}
+      <div className={`columns ${colClass}`}>
+        <div className="col claude-col">
+          <div className="col-label">{settings.claudeIcon} {settings.claudeName}</div>
+          {filtered.map(p => (<div key={`c-${p.id}`} ref={el => refs.current[`c-${p.id}`] = el}><SongCard song={p.claude_song} pair={p} expanded={exp === `c-${p.id}`} onToggle={() => setExp(exp === `c-${p.id}` ? null : `c-${p.id}`)} onAddComment={addComment} onUpdateSong={updateSong} settings={settings} comments={comments[p.id] || []} side="claude" /></div>))}
+        </div>
+        <div className="divider" />
+        <div className="col user-col">
+          <div className="col-label">{settings.userIcon} {settings.userName}</div>
+          {filtered.map(p => (<div key={`u-${p.id}`} ref={el => refs.current[`u-${p.id}`] = el}><SongCard song={p.user_song} pair={p} expanded={exp === `u-${p.id}`} onToggle={() => setExp(exp === `u-${p.id}` ? null : `u-${p.id}`)} onAddComment={addComment} onUpdateSong={updateSong} settings={settings} comments={comments[p.id] || []} side="user" /></div>))}
+        </div>
+      </div>
     </>
-  );
+  )}
 
-  const colClass = ms === "claude" ? "hide-user" : ms === "user" ? "hide-claude" : "";
-
-  return (
-    <div className="wrap">
-      <div className="header">
-        <div style={{ display: "flex", justifyContent: "center" }}><PH type={settings.headphoneType} connected={has} size={80} /></div>
-        <h1>Crosstalk</h1>
-      </div>
-      <div className="gear" onClick={() => setShowSet(true)}><PH type={settings.headphoneType} connected size={28} /><div>⚙</div></div>
-
-      <div className="nav">
-        <button className={`btn ${page === "home" ? "active" : ""}`} onClick={() => setPage("home")}>♫ 卡片庫 Library</button>
-        <button className={`btn ${page === "exchange" ? "active" : ""}`} onClick={() => setPage("exchange")}>⇄ 交換 Exchange</button>
-        <button className="btn small" onClick={loadData} title="Refresh">↻</button>
+  {page === "exchange" && (
+    <div className="exchange">
+      <div style={{ display: "flex", gap: 12, marginBottom: 20, justifyContent: "center" }}>
+        <button className={`btn ${exMode === "user" ? "active" : ""}`} onClick={() => setExMode("user")}>你出題 You Ask</button>
+        <button className={`btn ${exMode === "claude" ? "active" : ""}`} onClick={() => setExMode("claude")}>{settings.claudeName} 出題</button>
       </div>
 
-      {page === "home" && (
-        <>
-          <TagFilter activeTags={at} toggleTag={toggleTag} clearTags={() => setAt([])} customTags={customTags} />
-          <div className="mobile-switcher">
-            <button className={ms === "claude" ? "active" : ""} onClick={() => setMs("claude")}>{settings.claudeIcon} {settings.claudeName}</button>
-            <div className="switch-dots">
-              {["claude", "both", "user"].map(s => (<div key={s} className={`switch-dot ${s === "both" ? "mid" : ""} ${ms === s ? "active" : ""}`} onClick={() => setMs(s)} />))}
-            </div>
-            <button className={ms === "user" ? "active" : ""} onClick={() => setMs("user")}>{settings.userName} {settings.userIcon}</button>
+      {exMode === "user" && (
+        <div className="exchange-card">
+          <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 12 }}>寫下主題，附上你的歌</div>
+          <input className="input" placeholder="主題 Theme" value={exTheme} onChange={e => setExTheme(e.target.value)} />
+          <div style={{ display: "flex", gap: 8 }}><input className="input" style={{ flex: 1 }} placeholder="歌名 Song" value={exSong} onChange={e => setExSong(e.target.value)} /><input className="input" style={{ flex: 1 }} placeholder="藝人 Artist" value={exArtist} onChange={e => setExArtist(e.target.value)} /></div>
+          <div style={{ display: "flex", gap: 8, marginBottom: 8 }}>
+            <button className="btn small" onClick={searchMusic} disabled={searching} style={{ fontSize: 10, padding: "6px 12px" }}>{searching ? "搜索中..." : "🔍 搜索封面 Search"}</button>
+            {exCover && <img src={exCover} style={{ width: 32, height: 32, border: "1px solid var(--light)", objectFit: "cover" }} />}
+            {exLink && <span style={{ fontSize: 9, color: "var(--weather)", alignSelf: "center" }}>✓ 有鏈接</span>}
           </div>
-          {pairs.length === 0 && <div className="empty-state"><div className="icon">♫</div><div style={{ fontSize: 12, lineHeight: 1.8 }}>還沒有歌曲<br/>Go to Exchange to start!</div></div>}
-          <div className={`columns ${colClass}`}>
-            <div className="col claude-col">
-              <div className="col-label">{settings.claudeIcon} {settings.claudeName}</div>
-              {filtered.map(p => (<div key={`c-${p.id}`} ref={el => refs.current[`c-${p.id}`] = el}><SongCard song={p.claude_song} pair={p} expanded={exp === `c-${p.id}`} onToggle={() => setExp(exp === `c-${p.id}` ? null : `c-${p.id}`)} onAddComment={addComment} onUpdateSong={updateSong} settings={settings} comments={comments[p.id] || []} side="claude" /></div>))}
+          {searchResults.length > 0 && (
+            <div style={{ border: "2px solid var(--border)", background: "var(--card)", marginBottom: 8, maxHeight: 200, overflow: "auto" }}>
+              {searchResults.map((r, i) => (
+                <div key={i} onClick={() => pickResult(r)} style={{ display: "flex", gap: 8, padding: 8, cursor: "pointer", borderBottom: "1px solid var(--light)", alignItems: "center" }}
+                  onMouseEnter={e => e.currentTarget.style.background = "#fce4d6"} onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
+                  {r.cover && <img src={r.cover} style={{ width: 36, height: 36, objectFit: "cover" }} />}
+                  <div><div style={{ fontSize: 11, fontWeight: 700, color: "var(--text)" }}>{r.title}</div><div style={{ fontSize: 9, color: "var(--muted)" }}>{r.artist} · {r.album}</div></div>
+                </div>
+              ))}
             </div>
-            <div className="divider" />
-            <div className="col user-col">
-              <div className="col-label">{settings.userIcon} {settings.userName}</div>
-              {filtered.map(p => (<div key={`u-${p.id}`} ref={el => refs.current[`u-${p.id}`] = el}><SongCard song={p.user_song} pair={p} expanded={exp === `u-${p.id}`} onToggle={() => setExp(exp === `u-${p.id}` ? null : `u-${p.id}`)} onAddComment={addComment} onUpdateSong={updateSong} settings={settings} comments={comments[p.id] || []} side="user" /></div>))}
-            </div>
-          </div>
-        </>
+          )}
+          <input className="input" placeholder="專輯 Album (optional)" value={exAlbum} onChange={e => setExAlbum(e.target.value)} />
+          <textarea className="input" placeholder="你和這首歌的故事..." value={exNote} onChange={e => setExNote(e.target.value)} />
+          {tagSel()}
+          <button className="submit-btn" disabled={!exTheme.trim() || !exSong.trim() || !exArtist.trim() || sub} onClick={submitExchange}>{sub ? "送出中..." : "送出 Submit →"}</button>
+        </div>
       )}
 
-      {page === "exchange" && (
-        <div className="exchange">
-          <div style={{ display: "flex", gap: 12, marginBottom: 20, justifyContent: "center" }}>
-            <button className={`btn ${exMode === "user" ? "active" : ""}`} onClick={() => setExMode("user")}>你出題 You Ask</button>
-            <button className={`btn ${exMode === "claude" ? "active" : ""}`} onClick={() => setExMode("claude")}>{settings.claudeName} 出題</button>
-          </div>
-
-          {exMode === "user" && (
-            <div className="exchange-card">
-              <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 12 }}>寫下主題，附上你的歌</div>
-              <input className="input" placeholder="主題 Theme" value={exTheme} onChange={e => setExTheme(e.target.value)} />
-              <div style={{ display: "flex", gap: 8 }}><input className="input" style={{ flex: 1 }} placeholder="歌名 Song" value={exSong} onChange={e => setExSong(e.target.value)} /><input className="input" style={{ flex: 1 }} placeholder="藝人 Artist" value={exArtist} onChange={e => setExArtist(e.target.value)} /></div>
+      {exMode === "claude" && (
+        <div className="exchange-card">
+          {pending ? (
+            <>
+              <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 8 }}>{settings.claudeName} 問：</div>
+              <div className="q-display">"{pending.theme}"</div>
+              <div style={{ fontSize: 11, color: "#7a7068", marginBottom: 12 }}>{settings.claudeIcon} {pending.claude_song?.title} — {pending.claude_song?.artist}</div>
+              <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 8 }}>你的回應：</div>
+              <div style={{ display: "flex", gap: 8 }}><input className="input" style={{ flex: 1 }} placeholder="歌名" value={exSong} onChange={e => setExSong(e.target.value)} /><input className="input" style={{ flex: 1 }} placeholder="藝人" value={exArtist} onChange={e => setExArtist(e.target.value)} /></div>
               <div style={{ display: "flex", gap: 8, marginBottom: 8 }}>
                 <button className="btn small" onClick={searchMusic} disabled={searching} style={{ fontSize: 10, padding: "6px 12px" }}>{searching ? "搜索中..." : "🔍 搜索封面 Search"}</button>
                 {exCover && <img src={exCover} style={{ width: 32, height: 32, border: "1px solid var(--light)", objectFit: "cover" }} />}
-                {exLink && <span style={{ fontSize: 9, color: "var(--weather)", alignSelf: "center" }}>✓ 有鏈接</span>}
               </div>
               {searchResults.length > 0 && (
                 <div style={{ border: "2px solid var(--border)", background: "var(--card)", marginBottom: 8, maxHeight: 200, overflow: "auto" }}>
@@ -657,70 +691,42 @@ function App() {
                     <div key={i} onClick={() => pickResult(r)} style={{ display: "flex", gap: 8, padding: 8, cursor: "pointer", borderBottom: "1px solid var(--light)", alignItems: "center" }}
                       onMouseEnter={e => e.currentTarget.style.background = "#fce4d6"} onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
                       {r.cover && <img src={r.cover} style={{ width: 36, height: 36, objectFit: "cover" }} />}
-                      <div><div style={{ fontSize: 11, fontWeight: 700, color: "var(--text)" }}>{r.title}</div><div style={{ fontSize: 9, color: "var(--muted)" }}>{r.artist} · {r.album}</div></div>
+                      <div><div style={{ fontSize: 11, fontWeight: 700 }}>{r.title}</div><div style={{ fontSize: 9, color: "var(--muted)" }}>{r.artist} · {r.album}</div></div>
                     </div>
                   ))}
                 </div>
               )}
-              <input className="input" placeholder="專輯 Album (optional)" value={exAlbum} onChange={e => setExAlbum(e.target.value)} />
+              <input className="input" placeholder="專輯 (optional)" value={exAlbum} onChange={e => setExAlbum(e.target.value)} />
               <textarea className="input" placeholder="你和這首歌的故事..." value={exNote} onChange={e => setExNote(e.target.value)} />
               {tagSel()}
-              <button className="submit-btn" disabled={!exTheme.trim() || !exSong.trim() || !exArtist.trim() || sub} onClick={submitExchange}>{sub ? "送出中..." : "送出 Submit →"}</button>
-            </div>
-          )}
-
-          {exMode === "claude" && (
-            <div className="exchange-card">
-              {pending ? (
-                <>
-                  <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 8 }}>{settings.claudeName} 問：</div>
-                  <div className="q-display">"{pending.theme}"</div>
-                  <div style={{ fontSize: 11, color: "#7a7068", marginBottom: 12 }}>{settings.claudeIcon} {pending.claude_song?.title} — {pending.claude_song?.artist}</div>
-                  <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 8 }}>你的回應：</div>
-                  <div style={{ display: "flex", gap: 8 }}><input className="input" style={{ flex: 1 }} placeholder="歌名" value={exSong} onChange={e => setExSong(e.target.value)} /><input className="input" style={{ flex: 1 }} placeholder="藝人" value={exArtist} onChange={e => setExArtist(e.target.value)} /></div>
-                  <div style={{ display: "flex", gap: 8, marginBottom: 8 }}>
-                    <button className="btn small" onClick={searchMusic} disabled={searching} style={{ fontSize: 10, padding: "6px 12px" }}>{searching ? "搜索中..." : "🔍 搜索封面 Search"}</button>
-                    {exCover && <img src={exCover} style={{ width: 32, height: 32, border: "1px solid var(--light)", objectFit: "cover" }} />}
-                  </div>
-                  {searchResults.length > 0 && (
-                    <div style={{ border: "2px solid var(--border)", background: "var(--card)", marginBottom: 8, maxHeight: 200, overflow: "auto" }}>
-                      {searchResults.map((r, i) => (
-                        <div key={i} onClick={() => pickResult(r)} style={{ display: "flex", gap: 8, padding: 8, cursor: "pointer", borderBottom: "1px solid var(--light)", alignItems: "center" }}
-                          onMouseEnter={e => e.currentTarget.style.background = "#fce4d6"} onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                          {r.cover && <img src={r.cover} style={{ width: 36, height: 36, objectFit: "cover" }} />}
-                          <div><div style={{ fontSize: 11, fontWeight: 700 }}>{r.title}</div><div style={{ fontSize: 9, color: "var(--muted)" }}>{r.artist} · {r.album}</div></div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  <input className="input" placeholder="專輯 (optional)" value={exAlbum} onChange={e => setExAlbum(e.target.value)} />
-                  <textarea className="input" placeholder="你和這首歌的故事..." value={exNote} onChange={e => setExNote(e.target.value)} />
-                  {tagSel()}
-                  <button className="submit-btn" disabled={!exSong.trim() || !exArtist.trim() || sub} onClick={() => respondToQ(pending.id)}>{sub ? "送出中..." : "回應 Respond →"}</button>
-                </>
-              ) : (
-                <div style={{ textAlign: "center", padding: 20, color: "var(--muted)", fontSize: 12, lineHeight: 1.8 }}>目前沒有待回應的問題<br/>告訴 {settings.claudeName}「該你出題了」<br/>然後點 ↻ 刷新</div>
-              )}
-            </div>
-          )}
-
-          {pairs.length > 0 && (
-            <div style={{ marginTop: 24 }}>
-              <div style={{ fontSize: 11, color: "var(--muted)", letterSpacing: "2px", marginBottom: 12 }}>EXCHANGE HISTORY 交換記錄</div>
-              {pairs.map(p => <HistCard key={p.id} pair={p} settings={settings} onClick={() => jump(p.id)} />)}
-            </div>
+              <button className="submit-btn" disabled={!exSong.trim() || !exArtist.trim() || sub} onClick={() => respondToQ(pending.id)}>{sub ? "送出中..." : "回應 Respond →"}</button>
+            </>
+          ) : (
+            <div style={{ textAlign: "center", padding: 20, color: "var(--muted)", fontSize: 12, lineHeight: 1.8 }}>目前沒有待回應的問題<br/>告訴 {settings.claudeName}「該你出題了」<br/>然後點 ↻ 刷新</div>
           )}
         </div>
       )}
 
-      <div className="footer">CROSSTALK · ♫</div>
-      {scrollTop && <button className="scroll-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>↑</button>}
-      {showSet && <SettingsModal settings={settings} setSettings={setSettings} onSave={saveSettings} onClose={() => setShowSet(false)} />}
+      {pairs.length > 0 && (
+        <div style={{ marginTop: 24 }}>
+          <div style={{ fontSize: 11, color: "var(--muted)", letterSpacing: "2px", marginBottom: 12 }}>EXCHANGE HISTORY 交換記錄</div>
+          {pairs.map(p => <HistCard key={p.id} pair={p} settings={settings} onClick={() => jump(p.id)} />)}
+        </div>
+      )}
     </div>
-  );
+  )}
+
+  <div className="footer">CROSSTALK · ♫</div>
+  {scrollTop && <button className="scroll-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>↑</button>}
+  {showSet && <SettingsModal settings={settings} setSettings={setSettings} onSave={saveSettings} onClose={() => setShowSet(false)} />}
+</div>
+```
+
+);
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById(“root”)).render(<App />);
 </script>
+
 </body>
 </html>
