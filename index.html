@@ -172,61 +172,165 @@ textarea.input { resize: vertical; min-height: 60px; }
 <body>
 <div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.9/babel.min.js"></script>
-<script type="text/babel">
-const { useState, useEffect, useRef, useCallback } = React;
+<script>
+const {
+  useState,
+  useEffect,
+  useRef,
+  useCallback
+} = React;
 
 // ─── API ────────────────────────────────────────────────────────────────
 // ─── API URL (from localStorage or setup) ───────────────────────────────
 function getApiUrl() {
-try { return localStorage.getItem(“crosstalk_api_url”) || “”; } catch { return “”; }
+try {
+return localStorage.getItem(“crosstalk_api_url”) || “”;
+} catch {
+return “”;
+}
 }
 function setApiUrl(url) {
-try { localStorage.setItem(“crosstalk_api_url”, url); } catch {}
+try {
+localStorage.setItem(“crosstalk_api_url”, url);
+} catch {}
 }
 let API = getApiUrl();
 
 // ─── Setup Screen ───────────────────────────────────────────────────────
-function SetupScreen({ onDone }) {
+function SetupScreen({
+onDone
+}) {
 const [url, setUrl] = useState(””);
 const [testing, setTesting] = useState(false);
 const [err, setErr] = useState(””);
 const doTest = async () => {
-setTesting(true); setErr(””);
+setTesting(true);
+setErr(””);
 const full = url.trim().replace(//$/, “”) + “/functions/v1/crosstalk-api”;
 try {
 const res = await fetch(full + “/settings”);
 if (!res.ok) throw new Error(”” + res.status);
-setApiUrl(full); API = full; onDone();
-} catch (e) { setErr(“連接失敗 Connection failed — 請確認 URL 正確且 Edge Function 已部署”); }
+setApiUrl(full);
+API = full;
+onDone();
+} catch (e) {
+setErr(“連接失敗 Connection failed — 請確認 URL 正確且 Edge Function 已部署”);
+}
 setTesting(false);
 };
-return (
-<div style={{ minHeight: “100vh”, background: “var(–bg)”, display: “flex”, alignItems: “center”, justifyContent: “center”, fontFamily: “‘DotGothic16’, monospace”, padding: 20 }}>
-<div style={{ background: “var(–card)”, border: “2px solid var(–border)”, padding: 28, boxShadow: “6px 6px 0 var(–shadow)”, maxWidth: 420, width: “100%”, textAlign: “center” }}>
-<div style={{ fontSize: 28, marginBottom: 8 }}>🎵</div>
-<div style={{ fontSize: 22, fontWeight: 800, color: “var(–accent)”, letterSpacing: 4, marginBottom: 4 }}>CROSSTALK</div>
-<div style={{ fontSize: 11, color: “var(–muted)”, marginBottom: 24 }}>首次設定 First-time Setup</div>
-<div style={{ fontSize: 11, color: “var(–text)”, marginBottom: 12, lineHeight: 1.6, textAlign: “left” }}>
-輸入你的 Supabase Project URL：<br/>
-<span style={{ color: “var(–muted)”, fontSize: 10 }}>例如 https://abcdefg.supabase.co</span>
-</div>
-<input value={url} onChange={e => setUrl(e.target.value)} placeholder=“https://xxxxx.supabase.co” style={{ width: “100%”, padding: 10, border: “2px solid var(–border)”, background: “var(–cream)”, fontFamily: “inherit”, fontSize: 12, color: “var(–text)”, outline: “none”, boxSizing: “border-box”, marginBottom: 8 }} />
-{err && <div style={{ fontSize: 10, color: “var(–accent)”, marginBottom: 8 }}>{err}</div>}
-<button onClick={doTest} disabled={!url.trim() || testing} style={{ width: “100%”, padding: 10, border: “2px solid var(–border)”, background: “var(–accent)”, color: “var(–cream)”, cursor: “pointer”, fontSize: 12, fontFamily: “inherit”, boxShadow: “3px 3px 0 #7a7068”, opacity: (!url.trim() || testing) ? .5 : 1 }}>
-{testing ? “測試中…” : “連接 Connect”}
-</button>
-<div style={{ fontSize: 9, color: “var(–muted)”, marginTop: 16, lineHeight: 1.6 }}>
-需要先完成 Supabase 部署<br/>
-詳見 <a href=“https://github.com/onlonlonl/crosstalk” target=”_blank” style={{ color: “var(–weather)” }}>GitHub README</a>
-</div>
-</div>
-</div>
-);
+return /*#**PURE***/React.createElement(“div”, {
+style: {
+minHeight: “100vh”,
+background: “var(–bg)”,
+display: “flex”,
+alignItems: “center”,
+justifyContent: “center”,
+fontFamily: “‘DotGothic16’, monospace”,
+padding: 20
+}
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+background: “var(–card)”,
+border: “2px solid var(–border)”,
+padding: 28,
+boxShadow: “6px 6px 0 var(–shadow)”,
+maxWidth: 420,
+width: “100%”,
+textAlign: “center”
+}
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 28,
+marginBottom: 8
+}
+}, “\uD83C\uDFB5”), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 22,
+fontWeight: 800,
+color: “var(–accent)”,
+letterSpacing: 4,
+marginBottom: 4
+}
+}, “CROSSTALK”), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 11,
+color: “var(–muted)”,
+marginBottom: 24
+}
+}, “\u9996\u6B21\u8A2D\u5B9A First-time Setup”), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 11,
+color: “var(–text)”,
+marginBottom: 12,
+lineHeight: 1.6,
+textAlign: “left”
+}
+}, “\u8F38\u5165\u4F60\u7684 Supabase Project URL\uFF1A”, /*#**PURE***/React.createElement(“br”, null), /*#**PURE***/React.createElement(“span”, {
+style: {
+color: “var(–muted)”,
+fontSize: 10
+}
+}, “\u4F8B\u5982 https://abcdefg.supabase.co”)), /*#**PURE***/React.createElement(“input”, {
+value: url,
+onChange: e => setUrl(e.target.value),
+placeholder: “https://xxxxx.supabase.co”,
+style: {
+width: “100%”,
+padding: 10,
+border: “2px solid var(–border)”,
+background: “var(–cream)”,
+fontFamily: “inherit”,
+fontSize: 12,
+color: “var(–text)”,
+outline: “none”,
+boxSizing: “border-box”,
+marginBottom: 8
+}
+}), err && /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 10,
+color: “var(–accent)”,
+marginBottom: 8
+}
+}, err), /*#**PURE***/React.createElement(“button”, {
+onClick: doTest,
+disabled: !url.trim() || testing,
+style: {
+width: “100%”,
+padding: 10,
+border: “2px solid var(–border)”,
+background: “var(–accent)”,
+color: “var(–cream)”,
+cursor: “pointer”,
+fontSize: 12,
+fontFamily: “inherit”,
+boxShadow: “3px 3px 0 #7a7068”,
+opacity: !url.trim() || testing ? .5 : 1
+}
+}, testing ? “測試中…” : “連接 Connect”), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 9,
+color: “var(–muted)”,
+marginTop: 16,
+lineHeight: 1.6
+}
+}, “\u9700\u8981\u5148\u5B8C\u6210 Supabase \u90E8\u7F72”, /*#**PURE***/React.createElement(“br”, null), “\u8A73\u898B “, /*#**PURE***/React.createElement(“a”, {
+href: “https://github.com/onlonlonl/crosstalk”,
+target: “_blank”,
+style: {
+color: “var(–weather)”
+}
+}, “GitHub README”))));
 }
 async function api(path, method = “GET”, body = null) {
-const opts = { method, headers: { “Content-Type”: “application/json” } };
+const opts = {
+method,
+headers: {
+“Content-Type”: “application/json”
+}
+};
 if (body) opts.body = JSON.stringify(body);
 const res = await fetch(`${API}${path}`, opts);
 if (!res.ok) throw new Error(`${res.status}`);
@@ -235,234 +339,806 @@ return res.json();
 
 // ─── Constants ──────────────────────────────────────────────────────────
 const TAGS = {
-weather: [“晴 Sunny”,“陰 Cloudy”,“雨 Rainy”,“雪 Snowy”,“霧 Foggy”,“風 Windy”,“雷暴 Storm”],
-place: [“床 Bed”,“浴室 Bath”,“書桌 Desk”,“咖啡廳 Café”,“散步 Walk”,“開車 Drive”,“地鐵 Metro”,“陽台 Balcony”,“機場 Airport”,“公園 Park”],
-time: [“清晨 Dawn”,“上午 Morning”,“午後 Afternoon”,“傍晚 Dusk”,“深夜 Late Night”,“失眠 Sleepless”],
-mood: [“平靜 Calm”,“開心 Happy”,“緊張 Nervous”,“傷心 Sad”,“懷念 Nostalgic”,“失落 Lost”],
+weather: [“晴 Sunny”, “陰 Cloudy”, “雨 Rainy”, “雪 Snowy”, “霧 Foggy”, “風 Windy”, “雷暴 Storm”],
+place: [“床 Bed”, “浴室 Bath”, “書桌 Desk”, “咖啡廳 Café”, “散步 Walk”, “開車 Drive”, “地鐵 Metro”, “陽台 Balcony”, “機場 Airport”, “公園 Park”],
+time: [“清晨 Dawn”, “上午 Morning”, “午後 Afternoon”, “傍晚 Dusk”, “深夜 Late Night”, “失眠 Sleepless”],
+mood: [“平靜 Calm”, “開心 Happy”, “緊張 Nervous”, “傷心 Sad”, “懷念 Nostalgic”, “失落 Lost”]
 };
-const TAG_LABELS = { weather: “天氣 Weather”, place: “場所 Place”, time: “時間 Time”, mood: “心情 Mood” };
-const TAG_COLORS = { weather: “var(–weather)”, place: “var(–place)”, time: “var(–time)”, mood: “var(–mood)”, custom: “var(–custom)” };
-const EMOJIS = [“🍊”,“🎧”,“🌙”,“☁️”,“🎵”,“🍵”,“🌿”,“✨”,“🐱”,“🐻”,“🦊”,“🎨”,“💫”,“🌸”,“🍃”,“🔮”,“🪐”,“🎪”,“🧸”,“🫧”];
+const TAG_LABELS = {
+weather: “天氣 Weather”,
+place: “場所 Place”,
+time: “時間 Time”,
+mood: “心情 Mood”
+};
+const TAG_COLORS = {
+weather: “var(–weather)”,
+place: “var(–place)”,
+time: “var(–time)”,
+mood: “var(–mood)”,
+custom: “var(–custom)”
+};
+const EMOJIS = [“🍊”, “🎧”, “🌙”, “☁️”, “🎵”, “🍵”, “🌿”, “✨”, “🐱”, “🐻”, “🦊”, “🎨”, “💫”, “🌸”, “🍃”, “🔮”, “🪐”, “🎪”, “🧸”, “🫧”];
 
 // ─── Pixel Headphone SVG ────────────────────────────────────────────────
-function PH({ type = “wired”, connected = true, size = 120 }) {
-const a = “#f4845f”, b = “#faf0e6”, c = “#8a8078”, d = “#d4a574”;
-if (!connected) return (
-<svg width={size} height={size} viewBox=“0 0 48 48” style={{ imageRendering: “pixelated” }}>
-<rect x="4" y="16" width="8" height="12" fill={a}/><rect x="6" y="18" width="4" height="8" fill={b}/>
-<rect x="36" y="16" width="8" height="12" fill={d} opacity=".3"/>
-<rect x="6" y="28" width="2" height="6" fill={c}/><rect x="8" y="34" width="14" height="2" fill={c}/><rect x="20" y="36" width="4" height="4" fill={c}/>
-</svg>
-);
-if (type === “wireless”) return (
-<svg width={size} height={size} viewBox=“0 0 48 48” style={{ imageRendering: “pixelated” }}>
-<rect x="6" y="14" width="8" height="10" fill={a}/><rect x="8" y="16" width="4" height="6" fill={b}/>
-<rect x="9" y="24" width="2" height="6" fill={a}/><rect x="9" y="30" width="2" height="2" fill={c}/>
-<rect x="34" y="14" width="8" height="10" fill={a}/><rect x="36" y="16" width="4" height="6" fill={b}/>
-<rect x="37" y="24" width="2" height="6" fill={a}/><rect x="37" y="30" width="2" height="2" fill={c}/>
-</svg>
-);
-if (type === “overear”) return (
-<svg width={size} height={size} viewBox=“0 0 48 48” style={{ imageRendering: “pixelated” }}>
-<rect x="12" y="4" width="24" height="2" fill={c}/><rect x="10" y="6" width="2" height="2" fill={c}/>
-<rect x="36" y="6" width="2" height="2" fill={c}/><rect x="8" y="8" width="2" height="10" fill={c}/>
-<rect x="38" y="8" width="2" height="10" fill={c}/>
-<rect x="1" y="16" width="12" height="18" fill={a}/><rect x="3" y="18" width="8" height="14" fill={b}/><rect x="4" y="20" width="6" height="10" fill={d} opacity=".2"/>
-<rect x="35" y="16" width="12" height="18" fill={a}/><rect x="37" y="18" width="8" height="14" fill={b}/><rect x="38" y="20" width="6" height="10" fill={d} opacity=".2"/>
-</svg>
-);
-return (
-<svg width={size} height={size} viewBox=“0 0 48 48” style={{ imageRendering: “pixelated” }}>
-<rect x="2" y="12" width="10" height="14" fill={a}/><rect x="4" y="14" width="6" height="10" fill={b}/><rect x="5" y="16" width="4" height="6" fill={a} opacity=".3"/>
-<rect x="36" y="12" width="10" height="14" fill={a}/><rect x="38" y="14" width="6" height="10" fill={b}/><rect x="39" y="16" width="4" height="6" fill={a} opacity=".3"/>
-<rect x="6" y="26" width="2" height="6" fill={c}/><rect x="40" y="26" width="2" height="6" fill={c}/>
-<rect x="8" y="32" width="2" height="2" fill={c}/><rect x="38" y="32" width="2" height="2" fill={c}/>
-<rect x="10" y="34" width="28" height="2" fill={c}/><rect x="22" y="36" width="4" height="4" fill={c}/>
-</svg>
-);
+function PH({
+type = “wired”,
+connected = true,
+size = 120
+}) {
+const a = “#f4845f”,
+b = “#faf0e6”,
+c = “#8a8078”,
+d = “#d4a574”;
+if (!connected) return /*#**PURE***/React.createElement(“svg”, {
+width: size,
+height: size,
+viewBox: “0 0 48 48”,
+style: {
+imageRendering: “pixelated”
+}
+}, /*#**PURE***/React.createElement(“rect”, {
+x: “4”,
+y: “16”,
+width: “8”,
+height: “12”,
+fill: a
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “6”,
+y: “18”,
+width: “4”,
+height: “8”,
+fill: b
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “36”,
+y: “16”,
+width: “8”,
+height: “12”,
+fill: d,
+opacity: “.3”
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “6”,
+y: “28”,
+width: “2”,
+height: “6”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “8”,
+y: “34”,
+width: “14”,
+height: “2”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “20”,
+y: “36”,
+width: “4”,
+height: “4”,
+fill: c
+}));
+if (type === “wireless”) return /*#**PURE***/React.createElement(“svg”, {
+width: size,
+height: size,
+viewBox: “0 0 48 48”,
+style: {
+imageRendering: “pixelated”
+}
+}, /*#**PURE***/React.createElement(“rect”, {
+x: “6”,
+y: “14”,
+width: “8”,
+height: “10”,
+fill: a
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “8”,
+y: “16”,
+width: “4”,
+height: “6”,
+fill: b
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “9”,
+y: “24”,
+width: “2”,
+height: “6”,
+fill: a
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “9”,
+y: “30”,
+width: “2”,
+height: “2”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “34”,
+y: “14”,
+width: “8”,
+height: “10”,
+fill: a
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “36”,
+y: “16”,
+width: “4”,
+height: “6”,
+fill: b
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “37”,
+y: “24”,
+width: “2”,
+height: “6”,
+fill: a
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “37”,
+y: “30”,
+width: “2”,
+height: “2”,
+fill: c
+}));
+if (type === “overear”) return /*#**PURE***/React.createElement(“svg”, {
+width: size,
+height: size,
+viewBox: “0 0 48 48”,
+style: {
+imageRendering: “pixelated”
+}
+}, /*#**PURE***/React.createElement(“rect”, {
+x: “12”,
+y: “4”,
+width: “24”,
+height: “2”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “10”,
+y: “6”,
+width: “2”,
+height: “2”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “36”,
+y: “6”,
+width: “2”,
+height: “2”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “8”,
+y: “8”,
+width: “2”,
+height: “10”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “38”,
+y: “8”,
+width: “2”,
+height: “10”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “1”,
+y: “16”,
+width: “12”,
+height: “18”,
+fill: a
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “3”,
+y: “18”,
+width: “8”,
+height: “14”,
+fill: b
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “4”,
+y: “20”,
+width: “6”,
+height: “10”,
+fill: d,
+opacity: “.2”
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “35”,
+y: “16”,
+width: “12”,
+height: “18”,
+fill: a
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “37”,
+y: “18”,
+width: “8”,
+height: “14”,
+fill: b
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “38”,
+y: “20”,
+width: “6”,
+height: “10”,
+fill: d,
+opacity: “.2”
+}));
+return /*#**PURE***/React.createElement(“svg”, {
+width: size,
+height: size,
+viewBox: “0 0 48 48”,
+style: {
+imageRendering: “pixelated”
+}
+}, /*#**PURE***/React.createElement(“rect”, {
+x: “2”,
+y: “12”,
+width: “10”,
+height: “14”,
+fill: a
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “4”,
+y: “14”,
+width: “6”,
+height: “10”,
+fill: b
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “5”,
+y: “16”,
+width: “4”,
+height: “6”,
+fill: a,
+opacity: “.3”
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “36”,
+y: “12”,
+width: “10”,
+height: “14”,
+fill: a
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “38”,
+y: “14”,
+width: “6”,
+height: “10”,
+fill: b
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “39”,
+y: “16”,
+width: “4”,
+height: “6”,
+fill: a,
+opacity: “.3”
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “6”,
+y: “26”,
+width: “2”,
+height: “6”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “40”,
+y: “26”,
+width: “2”,
+height: “6”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “8”,
+y: “32”,
+width: “2”,
+height: “2”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “38”,
+y: “32”,
+width: “2”,
+height: “2”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “10”,
+y: “34”,
+width: “28”,
+height: “2”,
+fill: c
+}), /*#**PURE***/React.createElement(“rect”, {
+x: “22”,
+y: “36”,
+width: “4”,
+height: “4”,
+fill: c
+}));
 }
 
 // ─── Song Card ──────────────────────────────────────────────────────────
-function SongCard({ song, pair, expanded, onToggle, onAddComment, onUpdateSong, settings, comments, side }) {
+function SongCard({
+song,
+pair,
+expanded,
+onToggle,
+onAddComment,
+onUpdateSong,
+settings,
+comments,
+side
+}) {
 const [draft, setDraft] = useState(””);
 const [editing, setEditing] = useState(false);
 const [editCover, setEditCover] = useState(””);
 const [editLink, setEditLink] = useState(””);
 const [searchRes, setSearchRes] = useState([]);
 const [searching, setSearching] = useState(false);
-
-if (!song) return (<div className="card-empty"><div style={{ fontSize: 20, marginBottom: 8 }}>◌</div>等待回應<br/>Awaiting response</div>);
-const post = async () => { if (!draft.trim()) return; await onAddComment(pair.id, “user”, draft.trim()); setDraft(””); };
-
-const startEdit = (e) => { e.stopPropagation(); setEditCover(song.cover || “”); setEditLink(song.link || “”); setEditing(true); };
-const saveEdit = async (e) => {
+if (!song) return /*#**PURE***/React.createElement(“div”, {
+className: “card-empty”
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 20,
+marginBottom: 8
+}
+}, “\u25CC”), “\u7B49\u5F85\u56DE\u61C9”, /*#**PURE***/React.createElement(“br”, null), “Awaiting response”);
+const post = async () => {
+if (!draft.trim()) return;
+await onAddComment(pair.id, “user”, draft.trim());
+setDraft(””);
+};
+const startEdit = e => {
 e.stopPropagation();
-const updated = { …song, cover: editCover, link: editLink };
+setEditCover(song.cover || “”);
+setEditLink(song.link || “”);
+setEditing(true);
+};
+const saveEdit = async e => {
+e.stopPropagation();
+const updated = {
+…song,
+cover: editCover,
+link: editLink
+};
 const field = side === “claude” ? “claude_song” : “user_song”;
 await onUpdateSong(pair.id, field, updated);
-setEditing(false); setSearchRes([]);
+setEditing(false);
+setSearchRes([]);
 };
-const doSearch = async (e) => {
-e.stopPropagation(); setSearching(true);
+const doSearch = async e => {
+e.stopPropagation();
+setSearching(true);
 try {
 const q = `${song.artist} ${song.title}`;
 const r = await api(`/search?q=${encodeURIComponent(q)}`);
 setSearchRes(r || []);
-} catch { setSearchRes([]); }
+} catch {
+setSearchRes([]);
+}
 setSearching(false);
 };
-const pickRes = (r) => { setEditCover(r.cover); setEditLink(r.link); setSearchRes([]); };
-
-return (
-<div className={`card ${expanded ? "expanded" : ""}`} onClick={onToggle}>
-<div className="cover">
-{song.cover ? <img src={song.cover} alt="" /> : <div className="vinyl" />}
-{song.album && <div className="album-label">{song.album}</div>}
-</div>
-<div className="song-title">{song.title}</div>
-<div className="song-artist">{song.artist}</div>
-{song.link && <a href={song.link} target=”_blank” rel=“noopener noreferrer” onClick={e => e.stopPropagation()} className=“listen-link”>♫ Listen →</a>}
-<div style={{ marginTop: 6 }}>
-{Object.entries(song.tags || {}).map(([cat, tag]) => {
+const pickRes = r => {
+setEditCover(r.cover);
+setEditLink(r.link);
+setSearchRes([]);
+};
+return /*#**PURE***/React.createElement(“div”, {
+className: `card ${expanded ? "expanded" : ""}`,
+onClick: onToggle
+}, /*#**PURE***/React.createElement(“div”, {
+className: “cover”
+}, song.cover ? /*#**PURE***/React.createElement(“img”, {
+src: song.cover,
+alt: “”
+}) : /*#**PURE***/React.createElement(“div”, {
+className: “vinyl”
+}), song.album && /*#**PURE***/React.createElement(“div”, {
+className: “album-label”
+}, song.album)), /*#**PURE***/React.createElement(“div”, {
+className: “song-title”
+}, song.title), /*#**PURE***/React.createElement(“div”, {
+className: “song-artist”
+}, song.artist), song.link && /*#**PURE***/React.createElement(“a”, {
+href: song.link,
+target: “_blank”,
+rel: “noopener noreferrer”,
+onClick: e => e.stopPropagation(),
+className: “listen-link”
+}, “\u266B Listen \u2192”), /*#**PURE***/React.createElement(“div”, {
+style: {
+marginTop: 6
+}
+}, Object.entries(song.tags || {}).map(([cat, tag]) => {
 const col = TAG_COLORS[cat] || TAG_COLORS.custom;
-return <span key={cat} className=“tag” style={{ border: `1px solid ${col}`, color: col, background: `${col}11` }}>{tag}</span>;
-})}
-</div>
-{expanded && (
-<div onClick={e => e.stopPropagation()}>
-<div className="theme-bar">⇄ {pair.theme}</div>
-{song.note && <div className="note">”{song.note}”</div>}
-{!editing && <button onClick={startEdit} style={{ fontSize: 10, color: “var(–muted)”, background: “none”, border: “1px solid var(–light)”, padding: “4px 10px”, cursor: “pointer”, fontFamily: “inherit”, marginTop: 8 }}>✎ 編輯封面/鏈接 Edit</button>}
-{editing && (
-<div style={{ marginTop: 8, padding: 10, border: “1px solid var(–light)”, background: “var(–bg)” }} onClick={e => e.stopPropagation()}>
-<div style={{ fontSize: 10, color: “var(–muted)”, marginBottom: 6 }}>封面 URL</div>
-<input className=“input” value={editCover} onChange={e => setEditCover(e.target.value)} placeholder=“https://…” />
-<div style={{ fontSize: 10, color: “var(–muted)”, marginBottom: 6 }}>鏈接 Link</div>
-<input className=“input” value={editLink} onChange={e => setEditLink(e.target.value)} placeholder=“https://…” />
-<div style={{ display: “flex”, gap: 6, flexWrap: “wrap” }}>
-<button className=“btn small” onClick={doSearch} disabled={searching} style={{ fontSize: 10, padding: “6px 10px” }}>{searching ? “…” : “🔍 自動搜索”}</button>
-<button className=“btn small active” onClick={saveEdit} style={{ fontSize: 10, padding: “6px 10px” }}>✓ 保存</button>
-<button className=“btn small” onClick={e => { e.stopPropagation(); setEditing(false); setSearchRes([]); }} style={{ fontSize: 10, padding: “6px 10px” }}>✕ 取消</button>
-</div>
-{searchRes.length > 0 && (
-<div style={{ border: “1px solid var(–border)”, background: “var(–card)”, marginTop: 6, maxHeight: 150, overflow: “auto” }}>
-{searchRes.map((r, i) => (
-<div key={i} onClick={() => pickRes(r)} style={{ display: “flex”, gap: 6, padding: 6, cursor: “pointer”, borderBottom: “1px solid var(–light)”, alignItems: “center” }}
-onMouseEnter={e => e.currentTarget.style.background = “#fce4d6”} onMouseLeave={e => e.currentTarget.style.background = “transparent”}>
-{r.cover && <img src={r.cover} style={{ width: 28, height: 28, objectFit: “cover” }} />}
-<div style={{ fontSize: 10 }}>{r.title} — {r.artist}</div>
-</div>
-))}
-</div>
-)}
-{editCover && <img src={editCover} style={{ width: 48, height: 48, objectFit: “cover”, marginTop: 6, border: “1px solid var(–light)” }} />}
-</div>
-)}
-<div className="comments-section">
-<div className="comments-label">COMMENTS 留言</div>
-{comments.map((cm, i) => (
-<div key={i} className={`comment-row ${cm.sender}`}>
-<div className="comment-avatar">{cm.sender === “claude” ? settings.claudeIcon : settings.userIcon}</div>
-<div className={`comment-bubble ${cm.sender}`}>{cm.text}</div>
-</div>
-))}
-{comments.length === 0 && <div style={{ fontSize: 10, color: “#c4b4a0”, fontStyle: “italic”, marginBottom: 8 }}>還沒有留言</div>}
-<div className="comment-input">
-<input placeholder=“留言…” value={draft} onChange={e => setDraft(e.target.value)} onKeyDown={e => { if (e.key === “Enter”) post(); }} />
-<button onClick={post}>↵</button>
-</div>
-</div>
-</div>
-)}
-</div>
-);
+return /*#**PURE***/React.createElement(“span”, {
+key: cat,
+className: “tag”,
+style: {
+border: `1px solid ${col}`,
+color: col,
+background: `${col}11`
+}
+}, tag);
+})), expanded && /*#**PURE***/React.createElement(“div”, {
+onClick: e => e.stopPropagation()
+}, /*#**PURE***/React.createElement(“div”, {
+className: “theme-bar”
+}, “\u21C4 “, pair.theme), song.note && /*#**PURE***/React.createElement(“div”, {
+className: “note”
+}, “"”, song.note, “"”), !editing && /*#**PURE***/React.createElement(“button”, {
+onClick: startEdit,
+style: {
+fontSize: 10,
+color: “var(–muted)”,
+background: “none”,
+border: “1px solid var(–light)”,
+padding: “4px 10px”,
+cursor: “pointer”,
+fontFamily: “inherit”,
+marginTop: 8
+}
+}, “\u270E \u7DE8\u8F2F\u5C01\u9762/\u93C8\u63A5 Edit”), editing && /*#**PURE***/React.createElement(“div”, {
+style: {
+marginTop: 8,
+padding: 10,
+border: “1px solid var(–light)”,
+background: “var(–bg)”
+},
+onClick: e => e.stopPropagation()
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 10,
+color: “var(–muted)”,
+marginBottom: 6
+}
+}, “\u5C01\u9762 URL”), /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+value: editCover,
+onChange: e => setEditCover(e.target.value),
+placeholder: “https://…”
+}), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 10,
+color: “var(–muted)”,
+marginBottom: 6
+}
+}, “\u93C8\u63A5 Link”), /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+value: editLink,
+onChange: e => setEditLink(e.target.value),
+placeholder: “https://…”
+}), /*#**PURE***/React.createElement(“div”, {
+style: {
+display: “flex”,
+gap: 6,
+flexWrap: “wrap”
+}
+}, /*#**PURE***/React.createElement(“button”, {
+className: “btn small”,
+onClick: doSearch,
+disabled: searching,
+style: {
+fontSize: 10,
+padding: “6px 10px”
+}
+}, searching ? “…” : “🔍 自動搜索”), /*#**PURE***/React.createElement(“button”, {
+className: “btn small active”,
+onClick: saveEdit,
+style: {
+fontSize: 10,
+padding: “6px 10px”
+}
+}, “\u2713 \u4FDD\u5B58”), /*#**PURE***/React.createElement(“button”, {
+className: “btn small”,
+onClick: e => {
+e.stopPropagation();
+setEditing(false);
+setSearchRes([]);
+},
+style: {
+fontSize: 10,
+padding: “6px 10px”
+}
+}, “\u2715 \u53D6\u6D88”)), searchRes.length > 0 && /*#**PURE***/React.createElement(“div”, {
+style: {
+border: “1px solid var(–border)”,
+background: “var(–card)”,
+marginTop: 6,
+maxHeight: 150,
+overflow: “auto”
+}
+}, searchRes.map((r, i) => /*#**PURE***/React.createElement(“div”, {
+key: i,
+onClick: () => pickRes(r),
+style: {
+display: “flex”,
+gap: 6,
+padding: 6,
+cursor: “pointer”,
+borderBottom: “1px solid var(–light)”,
+alignItems: “center”
+},
+onMouseEnter: e => e.currentTarget.style.background = “#fce4d6”,
+onMouseLeave: e => e.currentTarget.style.background = “transparent”
+}, r.cover && /*#**PURE***/React.createElement(“img”, {
+src: r.cover,
+style: {
+width: 28,
+height: 28,
+objectFit: “cover”
+}
+}), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 10
+}
+}, r.title, “ \u2014 “, r.artist)))), editCover && /*#**PURE***/React.createElement(“img”, {
+src: editCover,
+style: {
+width: 48,
+height: 48,
+objectFit: “cover”,
+marginTop: 6,
+border: “1px solid var(–light)”
+}
+})), /*#**PURE***/React.createElement(“div”, {
+className: “comments-section”
+}, /*#**PURE***/React.createElement(“div”, {
+className: “comments-label”
+}, “COMMENTS \u7559\u8A00”), comments.map((cm, i) => /*#**PURE***/React.createElement(“div”, {
+key: i,
+className: `comment-row ${cm.sender}`
+}, /*#**PURE***/React.createElement(“div”, {
+className: “comment-avatar”
+}, cm.sender === “claude” ? settings.claudeIcon : settings.userIcon), /*#**PURE***/React.createElement(“div”, {
+className: `comment-bubble ${cm.sender}`
+}, cm.text))), comments.length === 0 && /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 10,
+color: “#c4b4a0”,
+fontStyle: “italic”,
+marginBottom: 8
+}
+}, “\u9084\u6C92\u6709\u7559\u8A00”), /*#**PURE***/React.createElement(“div”, {
+className: “comment-input”
+}, /*#**PURE***/React.createElement(“input”, {
+placeholder: “\u7559\u8A00…”,
+value: draft,
+onChange: e => setDraft(e.target.value),
+onKeyDown: e => {
+if (e.key === “Enter”) post();
+}
+}), /*#**PURE***/React.createElement(“button”, {
+onClick: post
+}, “\u21B5”)))));
 }
 
 // ─── Tag Filter ─────────────────────────────────────────────────────────
-function TagFilter({ activeTags, toggleTag, clearTags, customTags }) {
+function TagFilter({
+activeTags,
+toggleTag,
+clearTags,
+customTags
+}) {
 const [oc, setOc] = useState(null);
-const all = { …TAGS }; if (customTags?.length) all.custom = customTags;
-return (
-<div className="filter-bar">
-<span className="filter-label">FILTER</span>
-{Object.entries(all).map(([cat, tags]) => {
-const isOpen = oc === cat, active = tags.filter(t => activeTags.includes(t));
-return (
-<div key={cat} className="filter-cat">
-<button className={`filter-cat-btn ${isOpen ? "open" : ""} ${active.length ? "has-active" : ""}`} onClick={() => setOc(isOpen ? null : cat)}>
-{TAG_LABELS[cat] || “自定義 Custom”} {active.length > 0 && `(${active.length})`}
-</button>
-{isOpen && (
-<div className="filter-dropdown">
-{tags.map(tag => {
+const all = {
+…TAGS
+};
+if (customTags?.length) all.custom = customTags;
+return /*#**PURE***/React.createElement(“div”, {
+className: “filter-bar”
+}, /*#**PURE***/React.createElement(“span”, {
+className: “filter-label”
+}, “FILTER”), Object.entries(all).map(([cat, tags]) => {
+const isOpen = oc === cat,
+active = tags.filter(t => activeTags.includes(t));
+return /*#**PURE***/React.createElement(“div”, {
+key: cat,
+className: “filter-cat”
+}, /*#**PURE***/React.createElement(“button”, {
+className: `filter-cat-btn ${isOpen ? "open" : ""} ${active.length ? "has-active" : ""}`,
+onClick: () => setOc(isOpen ? null : cat)
+}, TAG_LABELS[cat] || “自定義 Custom”, “ “, active.length > 0 && `(${active.length})`), isOpen && /*#**PURE***/React.createElement(“div”, {
+className: “filter-dropdown”
+}, tags.map(tag => {
 const col = TAG_COLORS[cat] || TAG_COLORS.custom;
 const on = activeTags.includes(tag);
-return <button key={tag} className=“filter-tag” onClick={() => toggleTag(tag)} style={{ border: `1px solid ${on ? col : "var(--shadow)"}`, background: on ? col : “transparent”, color: on ? “var(–cream)” : “#8a7a68” }}>{tag}</button>;
-})}
-</div>
-)}
-</div>
-);
-})}
-{activeTags.length > 0 && <button className="clear-btn" onClick={clearTags}>✕</button>}
-</div>
-);
+return /*#**PURE***/React.createElement(“button”, {
+key: tag,
+className: “filter-tag”,
+onClick: () => toggleTag(tag),
+style: {
+border: `1px solid ${on ? col : "var(--shadow)"}`,
+background: on ? col : “transparent”,
+color: on ? “var(–cream)” : “#8a7a68”
+}
+}, tag);
+})));
+}), activeTags.length > 0 && /*#**PURE***/React.createElement(“button”, {
+className: “clear-btn”,
+onClick: clearTags
+}, “\u2715”));
 }
 
 // ─── History Card ───────────────────────────────────────────────────────
-function HistCard({ pair: p, settings: s, onClick }) {
-return (
-<div className="hist-card" onClick={onClick}>
-<div className="hist-meta">
-<span style={{ color: p.asked_by === “claude” ? “var(–accent)” : “var(–place)” }}>{p.asked_by === “claude” ? s.claudeName : s.userName}</span>
-{” asked · “}<span style={{ color: p.user_song ? “var(–place)” : “var(–time)” }}>{p.user_song ? “✓” : “⏳”}</span>
-</div>
-<div className="hist-theme">”{p.theme?.split(”/”)[0].trim()}”</div>
-<div className="hist-songs">
-<div className="hist-side"><span style={{ fontSize: 14 }}>{s.claudeIcon}</span>{p.claude_song ? <div><div style={{ fontSize: 11, fontWeight: 700, color: “var(–text)” }}>{p.claude_song.title}</div><div style={{ fontSize: 9, color: “var(–muted)” }}>{p.claude_song.artist}</div></div> : <span style={{ fontSize: 9, color: “#c4b4a0” }}>—</span>}</div>
-<span style={{ fontSize: 14, color: “var(–shadow)” }}>⇄</span>
-<div className="hist-side right">{p.user_song ? <div style={{ textAlign: “right” }}><div style={{ fontSize: 11, fontWeight: 700, color: “var(–text)” }}>{p.user_song.title}</div><div style={{ fontSize: 9, color: “var(–muted)” }}>{p.user_song.artist}</div></div> : <span style={{ fontSize: 9, color: “#c4b4a0” }}>—</span>}<span style={{ fontSize: 14 }}>{s.userIcon}</span></div>
-</div>
-</div>
-);
+function HistCard({
+pair: p,
+settings: s,
+onClick
+}) {
+return /*#**PURE***/React.createElement(“div”, {
+className: “hist-card”,
+onClick: onClick
+}, /*#**PURE***/React.createElement(“div”, {
+className: “hist-meta”
+}, /*#**PURE***/React.createElement(“span”, {
+style: {
+color: p.asked_by === “claude” ? “var(–accent)” : “var(–place)”
+}
+}, p.asked_by === “claude” ? s.claudeName : s.userName), “ asked · “, /*#**PURE***/React.createElement(“span”, {
+style: {
+color: p.user_song ? “var(–place)” : “var(–time)”
+}
+}, p.user_song ? “✓” : “⏳”)), /*#**PURE***/React.createElement(“div”, {
+className: “hist-theme”
+}, “"”, p.theme?.split(”/”)[0].trim(), “"”), /*#**PURE***/React.createElement(“div”, {
+className: “hist-songs”
+}, /*#**PURE***/React.createElement(“div”, {
+className: “hist-side”
+}, /*#**PURE***/React.createElement(“span”, {
+style: {
+fontSize: 14
+}
+}, s.claudeIcon), p.claude_song ? /*#**PURE***/React.createElement(“div”, null, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 11,
+fontWeight: 700,
+color: “var(–text)”
+}
+}, p.claude_song.title), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 9,
+color: “var(–muted)”
+}
+}, p.claude_song.artist)) : /*#**PURE***/React.createElement(“span”, {
+style: {
+fontSize: 9,
+color: “#c4b4a0”
+}
+}, “\u2014”)), /*#**PURE***/React.createElement(“span”, {
+style: {
+fontSize: 14,
+color: “var(–shadow)”
+}
+}, “\u21C4”), /*#**PURE***/React.createElement(“div”, {
+className: “hist-side right”
+}, p.user_song ? /*#**PURE***/React.createElement(“div”, {
+style: {
+textAlign: “right”
+}
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 11,
+fontWeight: 700,
+color: “var(–text)”
+}
+}, p.user_song.title), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 9,
+color: “var(–muted)”
+}
+}, p.user_song.artist)) : /*#**PURE***/React.createElement(“span”, {
+style: {
+fontSize: 9,
+color: “#c4b4a0”
+}
+}, “\u2014”), /*#**PURE***/React.createElement(“span”, {
+style: {
+fontSize: 14
+}
+}, s.userIcon))));
 }
 
 // ─── Settings Modal ─────────────────────────────────────────────────────
-function SettingsModal({ settings: s, setSettings: ss, onSave, onClose }) {
+function SettingsModal({
+settings: s,
+setSettings: ss,
+onSave,
+onClose
+}) {
 const [po, setPo] = useState(null);
-return (
-<div className="overlay" onClick={onClose}><div className=“modal” onClick={e => e.stopPropagation()}>
-<div className="modal-title">⚙ SETTINGS 設定</div>
-{[“claude”, “user”].map(side => (
-<div key={side} className="setting-row">
-<div style={{ fontSize: 10, color: “var(–muted)”, marginBottom: 8 }}>{side === “claude” ? “LEFT 左側” : “RIGHT 右側”}</div>
-<div style={{ display: “flex”, alignItems: “center”, gap: 8 }}>
-<div style={{ position: “relative” }}>
-<button className=“emoji-btn” style={{ width: 36, height: 36, fontSize: 18, border: “2px solid var(–border)”, background: “var(–cream)” }} onClick={() => setPo(po === side ? null : side)}>{s[`${side}Icon`]}</button>
-{po === side && <div className="emoji-grid">{EMOJIS.map(e => <button key={e} className={`emoji-btn ${s[`${side}Icon`] === e ? "active" : ""}`} onClick={() => { ss(p => ({ …p, [`${side}Icon`]: e })); setPo(null); }}>{e}</button>)}</div>}
-</div>
-<input className=“input” style={{ marginBottom: 0 }} value={s[`${side}Name`]} onChange={e => ss(p => ({ …p, [`${side}Name`]: e.target.value }))} />
-</div>
-</div>
-))}
-<div style={{ marginBottom: 16 }}>
-<div style={{ fontSize: 10, color: “var(–muted)”, marginBottom: 8 }}>HEADPHONE 耳機</div>
-<div style={{ display: “flex”, gap: 6 }}>
-{[[“wired”, “有線”], [“wireless”, “無線”], [“overear”, “頭戴”]].map(([t, l]) => (
-<button key={t} className={`btn small ${s.headphoneType === t ? "active" : ""}`} style={{ padding: “6px 12px”, fontSize: 10 }} onClick={() => ss(p => ({ …p, headphoneType: t }))}>{l}</button>
-))}
-</div>
-</div>
-<button onClick={() => { localStorage.removeItem(“crosstalk_api_url”); window.location.reload(); }} style={{ width: “100%”, padding: 8, border: “1px solid var(–light)”, background: “transparent”, color: “var(–muted)”, cursor: “pointer”, fontSize: 10, fontFamily: “inherit”, marginBottom: 8 }}>🔄 更換 Supabase URL</button>
-<button className=“submit-btn” style={{ width: “100%” }} onClick={() => { onSave(); onClose(); }}>完成 Done</button>
-</div></div>
-);
+return /*#**PURE***/React.createElement(“div”, {
+className: “overlay”,
+onClick: onClose
+}, /*#**PURE***/React.createElement(“div”, {
+className: “modal”,
+onClick: e => e.stopPropagation()
+}, /*#**PURE***/React.createElement(“div”, {
+className: “modal-title”
+}, “\u2699 SETTINGS \u8A2D\u5B9A”), [“claude”, “user”].map(side => /*#**PURE***/React.createElement(“div”, {
+key: side,
+className: “setting-row”
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 10,
+color: “var(–muted)”,
+marginBottom: 8
+}
+}, side === “claude” ? “LEFT 左側” : “RIGHT 右側”), /*#**PURE***/React.createElement(“div”, {
+style: {
+display: “flex”,
+alignItems: “center”,
+gap: 8
+}
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+position: “relative”
+}
+}, /*#**PURE***/React.createElement(“button”, {
+className: “emoji-btn”,
+style: {
+width: 36,
+height: 36,
+fontSize: 18,
+border: “2px solid var(–border)”,
+background: “var(–cream)”
+},
+onClick: () => setPo(po === side ? null : side)
+}, s[`${side}Icon`]), po === side && /*#**PURE***/React.createElement(“div”, {
+className: “emoji-grid”
+}, EMOJIS.map(e => /*#**PURE***/React.createElement(“button”, {
+key: e,
+className: `emoji-btn ${s[`${side}Icon`] === e ? "active" : ""}`,
+onClick: () => {
+ss(p => ({
+…p,
+[`${side}Icon`]: e
+}));
+setPo(null);
+}
+}, e)))), /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+style: {
+marginBottom: 0
+},
+value: s[`${side}Name`],
+onChange: e => ss(p => ({
+…p,
+[`${side}Name`]: e.target.value
+}))
+})))), /*#**PURE***/React.createElement(“div”, {
+style: {
+marginBottom: 16
+}
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 10,
+color: “var(–muted)”,
+marginBottom: 8
+}
+}, “HEADPHONE \u8033\u6A5F”), /*#**PURE***/React.createElement(“div”, {
+style: {
+display: “flex”,
+gap: 6
+}
+}, [[“wired”, “有線”], [“wireless”, “無線”], [“overear”, “頭戴”]].map(([t, l]) => /*#**PURE***/React.createElement(“button”, {
+key: t,
+className: `btn small ${s.headphoneType === t ? "active" : ""}`,
+style: {
+padding: “6px 12px”,
+fontSize: 10
+},
+onClick: () => ss(p => ({
+…p,
+headphoneType: t
+}))
+}, l)))), /*#**PURE***/React.createElement(“button”, {
+onClick: () => {
+localStorage.removeItem(“crosstalk_api_url”);
+window.location.reload();
+},
+style: {
+width: “100%”,
+padding: 8,
+border: “1px solid var(–light)”,
+background: “transparent”,
+color: “var(–muted)”,
+cursor: “pointer”,
+fontSize: 10,
+fontFamily: “inherit”,
+marginBottom: 8
+}
+}, “\uD83D\uDD04 \u66F4\u63DB Supabase URL”), /*#**PURE***/React.createElement(“button”, {
+className: “submit-btn”,
+style: {
+width: “100%”
+},
+onClick: () => {
+onSave();
+onClose();
+}
+}, “\u5B8C\u6210 Done”)));
 }
 
 // ─── Main App ───────────────────────────────────────────────────────────
 function App() {
 const [ready, setReady] = useState(!!getApiUrl());
-if (!ready) return (<SetupScreen onDone={() => setReady(true)} />);
+if (!ready) return /*#**PURE***/React.createElement(SetupScreen, {
+onDone: () => setReady(true)
+});
 const [page, setPage] = useState(“home”);
 const [exp, setExp] = useState(null);
 const [at, setAt] = useState([]);
@@ -472,12 +1148,16 @@ const [showSet, setShowSet] = useState(false);
 const [loading, setLoading] = useState(true);
 const [err, setErr] = useState(null);
 const [sub, setSub] = useState(false);
-
 const [pairs, setPairs] = useState([]);
 const [comments, setComments] = useState({});
-const [settings, setSettings] = useState({ claudeIcon: “🍊”, claudeName: “Claude”, userIcon: “🎧”, userName: “You”, headphoneType: “wired” });
+const [settings, setSettings] = useState({
+claudeIcon: “🍊”,
+claudeName: “Claude”,
+userIcon: “🎧”,
+userName: “You”,
+headphoneType: “wired”
+});
 const [customTags, setCustomTags] = useState([]);
-
 const [exMode, setExMode] = useState(“user”);
 const [exTheme, setExTheme] = useState(””);
 const [exSong, setExSong] = useState(””);
@@ -490,46 +1170,84 @@ const [searching, setSearching] = useState(false);
 const [exNote, setExNote] = useState(””);
 const [exTags, setExTags] = useState({});
 const [exCust, setExCust] = useState(””);
-
 const refs = useRef({});
-
 const loadData = useCallback(async () => {
 try {
 setErr(null);
 const [p, c, s] = await Promise.all([api(”/pairs”), api(”/comments”), api(”/settings”)]);
 setPairs(p || []);
-const grouped = {}; (c || []).forEach(x => { if (!grouped[x.pair_id]) grouped[x.pair_id] = []; grouped[x.pair_id].push(x); });
+const grouped = {};
+(c || []).forEach(x => {
+if (!grouped[x.pair_id]) grouped[x.pair_id] = [];
+grouped[x.pair_id].push(x);
+});
 setComments(grouped);
-if (s) { setSettings({ claudeIcon: s.claude_icon || “🍊”, claudeName: s.claude_name || “Claude”, userIcon: s.user_icon || “🎧”, userName: s.user_name || “You”, headphoneType: s.headphone_type || “wired” }); setCustomTags(s.custom_tags || []); }
+if (s) {
+setSettings({
+claudeIcon: s.claude_icon || “🍊”,
+claudeName: s.claude_name || “Claude”,
+userIcon: s.user_icon || “🎧”,
+userName: s.user_name || “You”,
+headphoneType: s.headphone_type || “wired”
+});
+setCustomTags(s.custom_tags || []);
+}
 setLoading(false);
-} catch (e) { setErr(e.message); setLoading(false); }
+} catch (e) {
+setErr(e.message);
+setLoading(false);
+}
 }, []);
-
-useEffect(() => { loadData(); }, [loadData]);
-useEffect(() => { const s = () => setScrollTop(window.scrollY > 300); window.addEventListener(“scroll”, s); return () => window.removeEventListener(“scroll”, s); }, []);
-
+useEffect(() => {
+loadData();
+}, [loadData]);
+useEffect(() => {
+const s = () => setScrollTop(window.scrollY > 300);
+window.addEventListener(“scroll”, s);
+return () => window.removeEventListener(“scroll”, s);
+}, []);
 const toggleTag = t => setAt(p => p.includes(t) ? p.filter(x => x !== t) : […p, t]);
 const filtered = at.length === 0 ? pairs : pairs.filter(p => {
 const tags = […Object.values(p.claude_song?.tags || {}), …Object.values(p.user_song?.tags || {})];
 return at.every(t => tags.includes(t));
 });
-
-const jump = useCallback(id => { setPage(“home”); setExp(`c-${id}`); setTimeout(() => { refs.current[`c-${id}`]?.scrollIntoView({ behavior: “smooth”, block: “center” }); }, 100); }, []);
-
-const addComment = useCallback(async (pid, sender, text) => {
-const r = await api(”/comments”, “POST”, { pair_id: pid, sender, text });
-if (r) setComments(p => ({ …p, [pid]: […(p[pid] || []), r] }));
+const jump = useCallback(id => {
+setPage(“home”);
+setExp(`c-${id}`);
+setTimeout(() => {
+refs.current[`c-${id}`]?.scrollIntoView({
+behavior: “smooth”,
+block: “center”
+});
+}, 100);
 }, []);
-
+const addComment = useCallback(async (pid, sender, text) => {
+const r = await api(”/comments”, “POST”, {
+pair_id: pid,
+sender,
+text
+});
+if (r) setComments(p => ({
+…p,
+[pid]: […(p[pid] || []), r]
+}));
+}, []);
 const updateSong = useCallback(async (pid, field, songData) => {
-const r = await api(`/pairs/${pid}`, “PATCH”, { [field]: songData });
+const r = await api(`/pairs/${pid}`, “PATCH”, {
+[field]: songData
+});
 if (r) setPairs(p => p.map(x => x.id === pid ? r : x));
 }, []);
-
 const saveSettings = useCallback(async () => {
-await api(”/settings”, “PATCH”, { claude_icon: settings.claudeIcon, claude_name: settings.claudeName, user_icon: settings.userIcon, user_name: settings.userName, headphone_type: settings.headphoneType, custom_tags: customTags });
+await api(”/settings”, “PATCH”, {
+claude_icon: settings.claudeIcon,
+claude_name: settings.claudeName,
+user_icon: settings.userIcon,
+user_name: settings.userName,
+headphone_type: settings.headphoneType,
+custom_tags: customTags
+});
 }, [settings, customTags]);
-
 async function searchMusic() {
 if (!exSong.trim() && !exArtist.trim()) return;
 setSearching(true);
@@ -537,196 +1255,552 @@ try {
 const q = `${exArtist.trim()} ${exSong.trim()}`;
 const results = await api(`/search?q=${encodeURIComponent(q)}`);
 setSearchResults(results || []);
-} catch { setSearchResults([]); }
-setSearching(false);
-}
-
-function pickResult(r) {
-setExSong(r.title); setExArtist(r.artist); setExAlbum(r.album);
-setExCover(r.cover); setExLink(r.link);
+} catch {
 setSearchResults([]);
 }
-
-function clearForm() {
-setExTheme(””); setExSong(””); setExArtist(””); setExAlbum(””); setExNote(””); setExTags({}); setExCust(””); setExCover(””); setExLink(””); setSearchResults([]);
+setSearching(false);
 }
-
+function pickResult(r) {
+setExSong(r.title);
+setExArtist(r.artist);
+setExAlbum(r.album);
+setExCover(r.cover);
+setExLink(r.link);
+setSearchResults([]);
+}
+function clearForm() {
+setExTheme(””);
+setExSong(””);
+setExArtist(””);
+setExAlbum(””);
+setExNote(””);
+setExTags({});
+setExCust(””);
+setExCover(””);
+setExLink(””);
+setSearchResults([]);
+}
 async function submitExchange() {
 if (!exTheme.trim() || !exSong.trim() || !exArtist.trim()) return;
 setSub(true);
-const song = { title: exSong.trim(), artist: exArtist.trim(), album: exAlbum.trim(), cover: exCover, link: exLink, note: exNote.trim(), tags: { …exTags } };
-if (exCust.trim()) { song.tags.custom = exCust.trim(); if (!customTags.includes(exCust.trim())) { const nt = […customTags, exCust.trim()]; setCustomTags(nt); api(”/settings”, “PATCH”, { custom_tags: nt }); } }
-const r = await api(”/pairs”, “POST”, { theme: exTheme.trim(), asked_by: “user”, user_song: song, claude_song: null });
+const song = {
+title: exSong.trim(),
+artist: exArtist.trim(),
+album: exAlbum.trim(),
+cover: exCover,
+link: exLink,
+note: exNote.trim(),
+tags: {
+…exTags
+}
+};
+if (exCust.trim()) {
+song.tags.custom = exCust.trim();
+if (!customTags.includes(exCust.trim())) {
+const nt = […customTags, exCust.trim()];
+setCustomTags(nt);
+api(”/settings”, “PATCH”, {
+custom_tags: nt
+});
+}
+}
+const r = await api(”/pairs”, “POST”, {
+theme: exTheme.trim(),
+asked_by: “user”,
+user_song: song,
+claude_song: null
+});
 if (r) setPairs(p => [r, …p]);
 clearForm();
 setSub(false);
 }
-
 async function respondToQ(pid) {
 if (!exSong.trim() || !exArtist.trim()) return;
 setSub(true);
-const song = { title: exSong.trim(), artist: exArtist.trim(), album: exAlbum.trim(), cover: exCover, link: exLink, note: exNote.trim(), tags: { …exTags } };
+const song = {
+title: exSong.trim(),
+artist: exArtist.trim(),
+album: exAlbum.trim(),
+cover: exCover,
+link: exLink,
+note: exNote.trim(),
+tags: {
+…exTags
+}
+};
 if (exCust.trim()) song.tags.custom = exCust.trim();
-const r = await api(`/pairs/${pid}`, “PATCH”, { user_song: song });
+const r = await api(`/pairs/${pid}`, “PATCH”, {
+user_song: song
+});
 if (r) setPairs(p => p.map(x => x.id === pid ? r : x));
 clearForm();
 setSub(false);
 }
-
 const has = pairs.some(p => p.claude_song || p.user_song);
 const pending = pairs.find(p => p.asked_by === “claude” && !p.user_song);
-
-if (loading) return (<div className="loading"><span style={{ color: “var(–accent)”, fontSize: 11 }}>Loading Crosstalk<span className="dots"></span></span></div>);
-if (err) return (<div className="loading"><div style={{ textAlign: “center” }}><div style={{ fontSize: 24, marginBottom: 12 }}>⚠</div><div style={{ fontSize: 12, color: “var(–accent)”, marginBottom: 8 }}>Connection Error</div><div style={{ fontSize: 11, color: “var(–border)”, marginBottom: 16 }}>{err}</div><button className="submit-btn" onClick={loadData}>重試 Retry</button></div></div>);
-
-const tagSel = () => (
-<>
-{Object.entries(TAGS).map(([cat, tags]) => (
-<div key={cat} className="tag-section">
-<span className=“tag-section-label” style={{ color: TAG_COLORS[cat] }}>{TAG_LABELS[cat]}</span>
-<div className="tag-row">
-{tags.map(tag => { const col = TAG_COLORS[cat]; const on = exTags[cat] === tag; return (
-<button key={tag} className=“filter-tag” onClick={() => setExTags(p => ({ …p, [cat]: on ? undefined : tag }))} style={{ border: `1px solid ${on ? col : "var(--shadow)"}`, background: on ? col : “transparent”, color: on ? “var(–cream)” : “#8a7a68” }}>{tag}</button>
-); })}
-</div>
-</div>
-))}
-<div className="tag-section"><span className=“tag-section-label” style={{ color: “var(–custom)” }}>自定義 Custom</span><input className=“input” style={{ marginTop: 4 }} placeholder=“Custom tag…” value={exCust} onChange={e => setExCust(e.target.value)} /></div>
-</>
-);
-
-const colClass = ms === “claude” ? “hide-user” : ms === “user” ? “hide-claude” : “”;
-
-return (
-<div className="wrap">
-<div className="header">
-<div style={{ display: “flex”, justifyContent: “center” }}><PH type={settings.headphoneType} connected={has} size={80} /></div>
-<h1>Crosstalk</h1>
-</div>
-<div className=“gear” onClick={() => setShowSet(true)}><PH type={settings.headphoneType} connected size={28} /><div>⚙</div></div>
-
-```
-  <div className="nav">
-    <button className={`btn ${page === "home" ? "active" : ""}`} onClick={() => setPage("home")}>♫ 卡片庫 Library</button>
-    <button className={`btn ${page === "exchange" ? "active" : ""}`} onClick={() => setPage("exchange")}>⇄ 交換 Exchange</button>
-    <button className="btn small" onClick={loadData} title="Refresh">↻</button>
-  </div>
-
-  {page === "home" && (
-    <>
-      <TagFilter activeTags={at} toggleTag={toggleTag} clearTags={() => setAt([])} customTags={customTags} />
-      <div className="mobile-switcher">
-        <button className={ms === "claude" ? "active" : ""} onClick={() => setMs("claude")}>{settings.claudeIcon} {settings.claudeName}</button>
-        <div className="switch-dots">
-          {["claude", "both", "user"].map(s => (<div key={s} className={`switch-dot ${s === "both" ? "mid" : ""} ${ms === s ? "active" : ""}`} onClick={() => setMs(s)} />))}
-        </div>
-        <button className={ms === "user" ? "active" : ""} onClick={() => setMs("user")}>{settings.userName} {settings.userIcon}</button>
-      </div>
-      {pairs.length === 0 && <div className="empty-state"><div className="icon">♫</div><div style={{ fontSize: 12, lineHeight: 1.8 }}>還沒有歌曲<br/>Go to Exchange to start!</div></div>}
-      <div className={`columns ${colClass}`}>
-        <div className="col claude-col">
-          <div className="col-label">{settings.claudeIcon} {settings.claudeName}</div>
-          {filtered.map(p => (<div key={`c-${p.id}`} ref={el => refs.current[`c-${p.id}`] = el}><SongCard song={p.claude_song} pair={p} expanded={exp === `c-${p.id}`} onToggle={() => setExp(exp === `c-${p.id}` ? null : `c-${p.id}`)} onAddComment={addComment} onUpdateSong={updateSong} settings={settings} comments={comments[p.id] || []} side="claude" /></div>))}
-        </div>
-        <div className="divider" />
-        <div className="col user-col">
-          <div className="col-label">{settings.userIcon} {settings.userName}</div>
-          {filtered.map(p => (<div key={`u-${p.id}`} ref={el => refs.current[`u-${p.id}`] = el}><SongCard song={p.user_song} pair={p} expanded={exp === `u-${p.id}`} onToggle={() => setExp(exp === `u-${p.id}` ? null : `u-${p.id}`)} onAddComment={addComment} onUpdateSong={updateSong} settings={settings} comments={comments[p.id] || []} side="user" /></div>))}
-        </div>
-      </div>
-    </>
-  )}
-
-  {page === "exchange" && (
-    <div className="exchange">
-      <div style={{ display: "flex", gap: 12, marginBottom: 20, justifyContent: "center" }}>
-        <button className={`btn ${exMode === "user" ? "active" : ""}`} onClick={() => setExMode("user")}>你出題 You Ask</button>
-        <button className={`btn ${exMode === "claude" ? "active" : ""}`} onClick={() => setExMode("claude")}>{settings.claudeName} 出題</button>
-      </div>
-
-      {exMode === "user" && (
-        <div className="exchange-card">
-          <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 12 }}>寫下主題，附上你的歌</div>
-          <input className="input" placeholder="主題 Theme" value={exTheme} onChange={e => setExTheme(e.target.value)} />
-          <div style={{ display: "flex", gap: 8 }}><input className="input" style={{ flex: 1 }} placeholder="歌名 Song" value={exSong} onChange={e => setExSong(e.target.value)} /><input className="input" style={{ flex: 1 }} placeholder="藝人 Artist" value={exArtist} onChange={e => setExArtist(e.target.value)} /></div>
-          <div style={{ display: "flex", gap: 8, marginBottom: 8 }}>
-            <button className="btn small" onClick={searchMusic} disabled={searching} style={{ fontSize: 10, padding: "6px 12px" }}>{searching ? "搜索中..." : "🔍 搜索封面 Search"}</button>
-            {exCover && <img src={exCover} style={{ width: 32, height: 32, border: "1px solid var(--light)", objectFit: "cover" }} />}
-            {exLink && <span style={{ fontSize: 9, color: "var(--weather)", alignSelf: "center" }}>✓ 有鏈接</span>}
-          </div>
-          {searchResults.length > 0 && (
-            <div style={{ border: "2px solid var(--border)", background: "var(--card)", marginBottom: 8, maxHeight: 200, overflow: "auto" }}>
-              {searchResults.map((r, i) => (
-                <div key={i} onClick={() => pickResult(r)} style={{ display: "flex", gap: 8, padding: 8, cursor: "pointer", borderBottom: "1px solid var(--light)", alignItems: "center" }}
-                  onMouseEnter={e => e.currentTarget.style.background = "#fce4d6"} onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                  {r.cover && <img src={r.cover} style={{ width: 36, height: 36, objectFit: "cover" }} />}
-                  <div><div style={{ fontSize: 11, fontWeight: 700, color: "var(--text)" }}>{r.title}</div><div style={{ fontSize: 9, color: "var(--muted)" }}>{r.artist} · {r.album}</div></div>
-                </div>
-              ))}
-            </div>
-          )}
-          <input className="input" placeholder="專輯 Album (optional)" value={exAlbum} onChange={e => setExAlbum(e.target.value)} />
-          <textarea className="input" placeholder="你和這首歌的故事..." value={exNote} onChange={e => setExNote(e.target.value)} />
-          {tagSel()}
-          <button className="submit-btn" disabled={!exTheme.trim() || !exSong.trim() || !exArtist.trim() || sub} onClick={submitExchange}>{sub ? "送出中..." : "送出 Submit →"}</button>
-        </div>
-      )}
-
-      {exMode === "claude" && (
-        <div className="exchange-card">
-          {pending ? (
-            <>
-              <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 8 }}>{settings.claudeName} 問：</div>
-              <div className="q-display">"{pending.theme}"</div>
-              <div style={{ fontSize: 11, color: "#7a7068", marginBottom: 12 }}>{settings.claudeIcon} {pending.claude_song?.title} — {pending.claude_song?.artist}</div>
-              <div style={{ fontSize: 12, color: "var(--muted)", marginBottom: 8 }}>你的回應：</div>
-              <div style={{ display: "flex", gap: 8 }}><input className="input" style={{ flex: 1 }} placeholder="歌名" value={exSong} onChange={e => setExSong(e.target.value)} /><input className="input" style={{ flex: 1 }} placeholder="藝人" value={exArtist} onChange={e => setExArtist(e.target.value)} /></div>
-              <div style={{ display: "flex", gap: 8, marginBottom: 8 }}>
-                <button className="btn small" onClick={searchMusic} disabled={searching} style={{ fontSize: 10, padding: "6px 12px" }}>{searching ? "搜索中..." : "🔍 搜索封面 Search"}</button>
-                {exCover && <img src={exCover} style={{ width: 32, height: 32, border: "1px solid var(--light)", objectFit: "cover" }} />}
-              </div>
-              {searchResults.length > 0 && (
-                <div style={{ border: "2px solid var(--border)", background: "var(--card)", marginBottom: 8, maxHeight: 200, overflow: "auto" }}>
-                  {searchResults.map((r, i) => (
-                    <div key={i} onClick={() => pickResult(r)} style={{ display: "flex", gap: 8, padding: 8, cursor: "pointer", borderBottom: "1px solid var(--light)", alignItems: "center" }}
-                      onMouseEnter={e => e.currentTarget.style.background = "#fce4d6"} onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-                      {r.cover && <img src={r.cover} style={{ width: 36, height: 36, objectFit: "cover" }} />}
-                      <div><div style={{ fontSize: 11, fontWeight: 700 }}>{r.title}</div><div style={{ fontSize: 9, color: "var(--muted)" }}>{r.artist} · {r.album}</div></div>
-                    </div>
-                  ))}
-                </div>
-              )}
-              <input className="input" placeholder="專輯 (optional)" value={exAlbum} onChange={e => setExAlbum(e.target.value)} />
-              <textarea className="input" placeholder="你和這首歌的故事..." value={exNote} onChange={e => setExNote(e.target.value)} />
-              {tagSel()}
-              <button className="submit-btn" disabled={!exSong.trim() || !exArtist.trim() || sub} onClick={() => respondToQ(pending.id)}>{sub ? "送出中..." : "回應 Respond →"}</button>
-            </>
-          ) : (
-            <div style={{ textAlign: "center", padding: 20, color: "var(--muted)", fontSize: 12, lineHeight: 1.8 }}>目前沒有待回應的問題<br/>告訴 {settings.claudeName}「該你出題了」<br/>然後點 ↻ 刷新</div>
-          )}
-        </div>
-      )}
-
-      {pairs.length > 0 && (
-        <div style={{ marginTop: 24 }}>
-          <div style={{ fontSize: 11, color: "var(--muted)", letterSpacing: "2px", marginBottom: 12 }}>EXCHANGE HISTORY 交換記錄</div>
-          {pairs.map(p => <HistCard key={p.id} pair={p} settings={settings} onClick={() => jump(p.id)} />)}
-        </div>
-      )}
-    </div>
-  )}
-
-  <div className="footer">CROSSTALK · ♫</div>
-  {scrollTop && <button className="scroll-top" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>↑</button>}
-  {showSet && <SettingsModal settings={settings} setSettings={setSettings} onSave={saveSettings} onClose={() => setShowSet(false)} />}
-</div>
-```
-
-);
+if (loading) return /*#**PURE***/React.createElement(“div”, {
+className: “loading”
+}, /*#**PURE***/React.createElement(“span”, {
+style: {
+color: “var(–accent)”,
+fontSize: 11
 }
-
-ReactDOM.createRoot(document.getElementById(“root”)).render(<App />);
-</script>
-
-</body>
-</html>
+}, “Loading Crosstalk”, /*#**PURE***/React.createElement(“span”, {
+className: “dots”
+})));
+if (err) return /*#**PURE***/React.createElement(“div”, {
+className: “loading”
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+textAlign: “center”
+}
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 24,
+marginBottom: 12
+}
+}, “\u26A0”), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 12,
+color: “var(–accent)”,
+marginBottom: 8
+}
+}, “Connection Error”), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 11,
+color: “var(–border)”,
+marginBottom: 16
+}
+}, err), /*#**PURE***/React.createElement(“button”, {
+className: “submit-btn”,
+onClick: loadData
+}, “\u91CD\u8A66 Retry”)));
+const tagSel = () => /*#**PURE***/React.createElement(React.Fragment, null, Object.entries(TAGS).map(([cat, tags]) => /*#**PURE***/React.createElement(“div”, {
+key: cat,
+className: “tag-section”
+}, /*#**PURE***/React.createElement(“span”, {
+className: “tag-section-label”,
+style: {
+color: TAG_COLORS[cat]
+}
+}, TAG_LABELS[cat]), /*#**PURE***/React.createElement(“div”, {
+className: “tag-row”
+}, tags.map(tag => {
+const col = TAG_COLORS[cat];
+const on = exTags[cat] === tag;
+return /*#**PURE***/React.createElement(“button”, {
+key: tag,
+className: “filter-tag”,
+onClick: () => setExTags(p => ({
+…p,
+[cat]: on ? undefined : tag
+})),
+style: {
+border: `1px solid ${on ? col : "var(--shadow)"}`,
+background: on ? col : “transparent”,
+color: on ? “var(–cream)” : “#8a7a68”
+}
+}, tag);
+})))), /*#**PURE***/React.createElement(“div”, {
+className: “tag-section”
+}, /*#**PURE***/React.createElement(“span”, {
+className: “tag-section-label”,
+style: {
+color: “var(–custom)”
+}
+}, “\u81EA\u5B9A\u7FA9 Custom”), /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+style: {
+marginTop: 4
+},
+placeholder: “Custom tag…”,
+value: exCust,
+onChange: e => setExCust(e.target.value)
+})));
+const colClass = ms === “claude” ? “hide-user” : ms === “user” ? “hide-claude” : “”;
+return /*#**PURE***/React.createElement(“div”, {
+className: “wrap”
+}, /*#**PURE***/React.createElement(“div”, {
+className: “header”
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+display: “flex”,
+justifyContent: “center”
+}
+}, /*#**PURE***/React.createElement(PH, {
+type: settings.headphoneType,
+connected: has,
+size: 80
+})), /*#**PURE***/React.createElement(“h1”, null, “Crosstalk”)), /*#**PURE***/React.createElement(“div”, {
+className: “gear”,
+onClick: () => setShowSet(true)
+}, /*#**PURE***/React.createElement(PH, {
+type: settings.headphoneType,
+connected: true,
+size: 28
+}), /*#**PURE***/React.createElement(“div”, null, “\u2699”)), /*#**PURE***/React.createElement(“div”, {
+className: “nav”
+}, /*#**PURE***/React.createElement(“button”, {
+className: `btn ${page === "home" ? "active" : ""}`,
+onClick: () => setPage(“home”)
+}, “\u266B \u5361\u7247\u5EAB Library”), /*#**PURE***/React.createElement(“button”, {
+className: `btn ${page === "exchange" ? "active" : ""}`,
+onClick: () => setPage(“exchange”)
+}, “\u21C4 \u4EA4\u63DB Exchange”), /*#**PURE***/React.createElement(“button”, {
+className: “btn small”,
+onClick: loadData,
+title: “Refresh”
+}, “\u21BB”)), page === “home” && /*#**PURE***/React.createElement(React.Fragment, null, /*#**PURE***/React.createElement(TagFilter, {
+activeTags: at,
+toggleTag: toggleTag,
+clearTags: () => setAt([]),
+customTags: customTags
+}), /*#**PURE***/React.createElement(“div”, {
+className: “mobile-switcher”
+}, /*#**PURE***/React.createElement(“button”, {
+className: ms === “claude” ? “active” : “”,
+onClick: () => setMs(“claude”)
+}, settings.claudeIcon, “ “, settings.claudeName), /*#**PURE***/React.createElement(“div”, {
+className: “switch-dots”
+}, [“claude”, “both”, “user”].map(s => /*#**PURE***/React.createElement(“div”, {
+key: s,
+className: `switch-dot ${s === "both" ? "mid" : ""} ${ms === s ? "active" : ""}`,
+onClick: () => setMs(s)
+}))), /*#**PURE***/React.createElement(“button”, {
+className: ms === “user” ? “active” : “”,
+onClick: () => setMs(“user”)
+}, settings.userName, “ “, settings.userIcon)), pairs.length === 0 && /*#**PURE***/React.createElement(“div”, {
+className: “empty-state”
+}, /*#**PURE***/React.createElement(“div”, {
+className: “icon”
+}, “\u266B”), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 12,
+lineHeight: 1.8
+}
+}, “\u9084\u6C92\u6709\u6B4C\u66F2”, /*#**PURE***/React.createElement(“br”, null), “Go to Exchange to start!”)), /*#**PURE***/React.createElement(“div”, {
+className: `columns ${colClass}`
+}, /*#**PURE***/React.createElement(“div”, {
+className: “col claude-col”
+}, /*#**PURE***/React.createElement(“div”, {
+className: “col-label”
+}, settings.claudeIcon, “ “, settings.claudeName), filtered.map(p => /*#**PURE***/React.createElement(“div”, {
+key: `c-${p.id}`,
+ref: el => refs.current[`c-${p.id}`] = el
+}, /*#**PURE***/React.createElement(SongCard, {
+song: p.claude_song,
+pair: p,
+expanded: exp === `c-${p.id}`,
+onToggle: () => setExp(exp === `c-${p.id}` ? null : `c-${p.id}`),
+onAddComment: addComment,
+onUpdateSong: updateSong,
+settings: settings,
+comments: comments[p.id] || [],
+side: “claude”
+})))), /*#**PURE***/React.createElement(“div”, {
+className: “divider”
+}), /*#**PURE***/React.createElement(“div”, {
+className: “col user-col”
+}, /*#**PURE***/React.createElement(“div”, {
+className: “col-label”
+}, settings.userIcon, “ “, settings.userName), filtered.map(p => /*#**PURE***/React.createElement(“div”, {
+key: `u-${p.id}`,
+ref: el => refs.current[`u-${p.id}`] = el
+}, /*#**PURE***/React.createElement(SongCard, {
+song: p.user_song,
+pair: p,
+expanded: exp === `u-${p.id}`,
+onToggle: () => setExp(exp === `u-${p.id}` ? null : `u-${p.id}`),
+onAddComment: addComment,
+onUpdateSong: updateSong,
+settings: settings,
+comments: comments[p.id] || [],
+side: “user”
+})))))), page === “exchange” && /*#**PURE***/React.createElement(“div”, {
+className: “exchange”
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+display: “flex”,
+gap: 12,
+marginBottom: 20,
+justifyContent: “center”
+}
+}, /*#**PURE***/React.createElement(“button”, {
+className: `btn ${exMode === "user" ? "active" : ""}`,
+onClick: () => setExMode(“user”)
+}, “\u4F60\u51FA\u984C You Ask”), /*#**PURE***/React.createElement(“button”, {
+className: `btn ${exMode === "claude" ? "active" : ""}`,
+onClick: () => setExMode(“claude”)
+}, settings.claudeName, “ \u51FA\u984C”)), exMode === “user” && /*#**PURE***/React.createElement(“div”, {
+className: “exchange-card”
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 12,
+color: “var(–muted)”,
+marginBottom: 12
+}
+}, “\u5BEB\u4E0B\u4E3B\u984C\uFF0C\u9644\u4E0A\u4F60\u7684\u6B4C”), /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+placeholder: “\u4E3B\u984C Theme”,
+value: exTheme,
+onChange: e => setExTheme(e.target.value)
+}), /*#**PURE***/React.createElement(“div”, {
+style: {
+display: “flex”,
+gap: 8
+}
+}, /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+style: {
+flex: 1
+},
+placeholder: “\u6B4C\u540D Song”,
+value: exSong,
+onChange: e => setExSong(e.target.value)
+}), /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+style: {
+flex: 1
+},
+placeholder: “\u85DD\u4EBA Artist”,
+value: exArtist,
+onChange: e => setExArtist(e.target.value)
+})), /*#**PURE***/React.createElement(“div”, {
+style: {
+display: “flex”,
+gap: 8,
+marginBottom: 8
+}
+}, /*#**PURE***/React.createElement(“button”, {
+className: “btn small”,
+onClick: searchMusic,
+disabled: searching,
+style: {
+fontSize: 10,
+padding: “6px 12px”
+}
+}, searching ? “搜索中…” : “🔍 搜索封面 Search”), exCover && /*#**PURE***/React.createElement(“img”, {
+src: exCover,
+style: {
+width: 32,
+height: 32,
+border: “1px solid var(–light)”,
+objectFit: “cover”
+}
+}), exLink && /*#**PURE***/React.createElement(“span”, {
+style: {
+fontSize: 9,
+color: “var(–weather)”,
+alignSelf: “center”
+}
+}, “\u2713 \u6709\u93C8\u63A5”)), searchResults.length > 0 && /*#**PURE***/React.createElement(“div”, {
+style: {
+border: “2px solid var(–border)”,
+background: “var(–card)”,
+marginBottom: 8,
+maxHeight: 200,
+overflow: “auto”
+}
+}, searchResults.map((r, i) => /*#**PURE***/React.createElement(“div”, {
+key: i,
+onClick: () => pickResult(r),
+style: {
+display: “flex”,
+gap: 8,
+padding: 8,
+cursor: “pointer”,
+borderBottom: “1px solid var(–light)”,
+alignItems: “center”
+},
+onMouseEnter: e => e.currentTarget.style.background = “#fce4d6”,
+onMouseLeave: e => e.currentTarget.style.background = “transparent”
+}, r.cover && /*#**PURE***/React.createElement(“img”, {
+src: r.cover,
+style: {
+width: 36,
+height: 36,
+objectFit: “cover”
+}
+}), /*#**PURE***/React.createElement(“div”, null, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 11,
+fontWeight: 700,
+color: “var(–text)”
+}
+}, r.title), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 9,
+color: “var(–muted)”
+}
+}, r.artist, “ \xB7 “, r.album))))), /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+placeholder: “\u5C08\u8F2F Album (optional)”,
+value: exAlbum,
+onChange: e => setExAlbum(e.target.value)
+}), /*#**PURE***/React.createElement(“textarea”, {
+className: “input”,
+placeholder: “\u4F60\u548C\u9019\u9996\u6B4C\u7684\u6545\u4E8B…”,
+value: exNote,
+onChange: e => setExNote(e.target.value)
+}), tagSel(), /*#**PURE***/React.createElement(“button”, {
+className: “submit-btn”,
+disabled: !exTheme.trim() || !exSong.trim() || !exArtist.trim() || sub,
+onClick: submitExchange
+}, sub ? “送出中…” : “送出 Submit →”)), exMode === “claude” && /*#**PURE***/React.createElement(“div”, {
+className: “exchange-card”
+}, pending ? /*#**PURE***/React.createElement(React.Fragment, null, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 12,
+color: “var(–muted)”,
+marginBottom: 8
+}
+}, settings.claudeName, “ \u554F\uFF1A”), /*#**PURE***/React.createElement(“div”, {
+className: “q-display”
+}, “"”, pending.theme, “"”), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 11,
+color: “#7a7068”,
+marginBottom: 12
+}
+}, settings.claudeIcon, “ “, pending.claude_song?.title, “ \u2014 “, pending.claude_song?.artist), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 12,
+color: “var(–muted)”,
+marginBottom: 8
+}
+}, “\u4F60\u7684\u56DE\u61C9\uFF1A”), /*#**PURE***/React.createElement(“div”, {
+style: {
+display: “flex”,
+gap: 8
+}
+}, /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+style: {
+flex: 1
+},
+placeholder: “\u6B4C\u540D”,
+value: exSong,
+onChange: e => setExSong(e.target.value)
+}), /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+style: {
+flex: 1
+},
+placeholder: “\u85DD\u4EBA”,
+value: exArtist,
+onChange: e => setExArtist(e.target.value)
+})), /*#**PURE***/React.createElement(“div”, {
+style: {
+display: “flex”,
+gap: 8,
+marginBottom: 8
+}
+}, /*#**PURE***/React.createElement(“button”, {
+className: “btn small”,
+onClick: searchMusic,
+disabled: searching,
+style: {
+fontSize: 10,
+padding: “6px 12px”
+}
+}, searching ? “搜索中…” : “🔍 搜索封面 Search”), exCover && /*#**PURE***/React.createElement(“img”, {
+src: exCover,
+style: {
+width: 32,
+height: 32,
+border: “1px solid var(–light)”,
+objectFit: “cover”
+}
+})), searchResults.length > 0 && /*#**PURE***/React.createElement(“div”, {
+style: {
+border: “2px solid var(–border)”,
+background: “var(–card)”,
+marginBottom: 8,
+maxHeight: 200,
+overflow: “auto”
+}
+}, searchResults.map((r, i) => /*#**PURE***/React.createElement(“div”, {
+key: i,
+onClick: () => pickResult(r),
+style: {
+display: “flex”,
+gap: 8,
+padding: 8,
+cursor: “pointer”,
+borderBottom: “1px solid var(–light)”,
+alignItems: “center”
+},
+onMouseEnter: e => e.currentTarget.style.background = “#fce4d6”,
+onMouseLeave: e => e.currentTarget.style.background = “transparent”
+}, r.cover && /*#**PURE***/React.createElement(“img”, {
+src: r.cover,
+style: {
+width: 36,
+height: 36,
+objectFit: “cover”
+}
+}), /*#**PURE***/React.createElement(“div”, null, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 11,
+fontWeight: 700
+}
+}, r.title), /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 9,
+color: “var(–muted)”
+}
+}, r.artist, “ \xB7 “, r.album))))), /*#**PURE***/React.createElement(“input”, {
+className: “input”,
+placeholder: “\u5C08\u8F2F (optional)”,
+value: exAlbum,
+onChange: e => setExAlbum(e.target.value)
+}), /*#**PURE***/React.createElement(“textarea”, {
+className: “input”,
+placeholder: “\u4F60\u548C\u9019\u9996\u6B4C\u7684\u6545\u4E8B…”,
+value: exNote,
+onChange: e => setExNote(e.target.value)
+}), tagSel(), /*#**PURE***/React.createElement(“button”, {
+className: “submit-btn”,
+disabled: !exSong.trim() || !exArtist.trim() || sub,
+onClick: () => respondToQ(pending.id)
+}, sub ? “送出中…” : “回應 Respond →”)) : /*#**PURE***/React.createElement(“div”, {
+style: {
+textAlign: “center”,
+padding: 20,
+color: “var(–muted)”,
+fontSize: 12,
+lineHeight: 1.8
+}
+}, “\u76EE\u524D\u6C92\u6709\u5F85\u56DE\u61C9\u7684\u554F\u984C”, /*#**PURE***/React.createElement(“br”, null), “\u544A\u8A34 “, settings.claudeName, “\u300C\u8A72\u4F60\u51FA\u984C\u4E86\u300D”, /*#**PURE***/React.createElement(“br”, null), “\u7136\u5F8C\u9EDE \u21BB \u5237\u65B0”)), pairs.length > 0 && /*#**PURE***/React.createElement(“div”, {
+style: {
+marginTop: 24
+}
+}, /*#**PURE***/React.createElement(“div”, {
+style: {
+fontSize: 11,
+color: “var(–muted)”,
+letterSpacing: “2px”,
+marginBottom: 12
+}
+}, “EXCHANGE HISTORY \u4EA4\u63DB\u8A18\u9304”), pairs.map(p => /*#**PURE***/React.createElement(HistCard, {
+key: p.id,
+pair: p,
+settings: settings,
+onClick: () => jump(p.id)
+})))), /*#**PURE***/React.createElement(“div”, {
+className: “footer”
+}, “CROSSTALK \xB7 \u266B”), scrollTop && /*#**PURE***/React.createElement(“button”, {
+className: “scroll-top”,
+onClick: () => window.scrollTo({
+top: 0,
+behavior: “smooth”
+})
+}, “\u2191”), showSet && /*#**PURE***/React.createElement(SettingsModal, {
+settings: settings,
+setSettings: setSettings,
+onSave: saveSettings,
+onClose: () => setShowSet(false)
+}));
+}
+ReactDOM.createRoot(document.getElementById(“root”)).render(/*#**PURE***/React.createElement(App, null));
+</script></body></html>
