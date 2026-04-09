@@ -171,7 +171,6 @@
 <body>
 <div id="root"></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
 <script>
 const {
@@ -1327,7 +1326,16 @@ function App() {
         ...exTags
       }
     };
-    if (exCust.trim()) song.tags.custom = exCust.trim();
+    if (exCust.trim()) {
+      song.tags.custom = exCust.trim();
+      if (!customTags.includes(exCust.trim())) {
+        const nt = [...customTags, exCust.trim()];
+        setCustomTags(nt);
+        api("/settings", "PATCH", {
+          custom_tags: nt
+        });
+      }
+    }
     const r = await api(`/pairs/${pid}`, "PATCH", {
       user_song: song
     });
