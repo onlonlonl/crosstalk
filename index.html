@@ -181,9 +181,15 @@ const {
 } = React;
 
 // ─── API ────────────────────────────────────────────────────────────────
-// ─── API URL (from localStorage or setup) ───────────────────────────────
+// ─── API URL (from hash, localStorage, or setup) ────────────────────────
 function getApiUrl() {
   try {
+    var hash = window.location.hash.slice(1);
+    if (hash && hash.startsWith("http")) {
+      var full = hash.replace(/\/$/, "") + "/functions/v1/crosstalk-api";
+      localStorage.setItem("crosstalk_api_url", full);
+      return full;
+    }
     return localStorage.getItem("crosstalk_api_url") || "";
   } catch {
     return "";
@@ -212,6 +218,7 @@ function SetupScreen({
       if (!res.ok) throw new Error("" + res.status);
       setApiUrl(full);
       API = full;
+      window.location.hash = url.trim().replace(/\/$/, "");
       onDone();
     } catch (e) {
       setErr("連接失敗 Connection failed — 請確認 URL 正確且 Edge Function 已部署");
